@@ -12,20 +12,20 @@ const instrumentSans = Instrument_Sans({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://paulkaronji.dev"),
+  metadataBase: new URL("https://paulkaronji.netlify.app"),
   title: `${profile.name} — ${profile.role}`,
   description: profile.bio,
   keywords: [
     "Paul Karonji Waithaka",
-    "Systems Architect",
     "Full-Stack Software Engineer",
     "Go Engineer",
-    "NestJS",
+    "M-Pesa Daraja",
+    "Paystack",
+    "KRA eTIMS",
+    "Offline-first",
     "React 19",
     "Next.js",
-    "Offline-first",
-    "KRA eTIMS",
-    "M-Pesa Daraja",
+    "MCP",
     "WIK Technologies",
     "Nairobi Kenya"
   ],

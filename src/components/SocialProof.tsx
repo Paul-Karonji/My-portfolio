@@ -85,18 +85,18 @@ export default function SocialProof() {
               </div>
               <div className="flex items-center gap-2 text-[13px] text-primaryText">
                 <ShieldCheck className="w-4 h-4 text-accentGreen" />
-                <span>Technical Lead · JHUB Africa Innovation</span>
+                <span>Technical Lead · JHUB Africa (JKUAT Hub)</span>
               </div>
               <div className="flex items-center gap-2 text-[13px] text-primaryText">
                 <ShieldCheck className="w-4 h-4 text-accentGreen" />
-                <span>KRA eTIMS Tax Fiscalization Architect</span>
+                <span>KRA eTIMS Fiscalization · OSCU/VSCU</span>
               </div>
             </div>
           </div>
 
           <div className="pt-6 border-t border-borderHairline/60 mt-6">
             <span className="text-[12px] text-mutedText font-medium">
-              KCA University Software Development (2026)
+              BSc Software Development · KCA University (exp. July 2027)
             </span>
           </div>
         </motion.div>

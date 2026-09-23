@@ -89,9 +89,9 @@ export default function Hero() {
               className="text-[34px] sm:text-[44px] md:text-[48px] lg:text-[50px] xl:text-[56px] font-medium text-primaryText leading-[1.1] tracking-[-0.03em]"
             >
               {[
-                "Paul", "is", "solving", "complex", "problems",
-                "through", "distributed", "architecture", "and",
-                "high-velocity", "engineering",
+                "I", "ship", "production", "systems",
+                "with", "live", "users", "—",
+                "payments,", "health,", "fleet,", "AI",
               ].map((word, i) => (
                 <span key={i} className="inline-block overflow-hidden mr-[0.28em] last:mr-0">
                   <motion.span
@@ -119,7 +119,7 @@ export default function Hero() {
               transition={{ duration: 0.65, delay: 0.16, ease: [0.21, 0.47, 0.32, 0.98] }}
               className="text-[15px] sm:text-[17px] text-mutedText leading-relaxed max-w-2xl"
             >
-              Full-Stack Software Engineer &amp; Systems Architect with 3+ years delivering production systems across high-concurrency Go backends, offline-first mobile/desktop engines, and fintech compliance pipelines.
+              Full-stack engineer shipping production systems with live users: a hospital platform running in 3 hospitals, SaaS products processing real card payments, and an offline-first POS suite with KRA eTIMS fiscalization. 3+ years across Kenya&apos;s payment rails, offline-first architecture, real-time systems, and MCP AI tooling.
             </motion.p>
 
             {/* Action Buttons */}
@@ -162,7 +162,7 @@ export default function Hero() {
               </span>
               <span className="flex items-center gap-1.5">
                 <span className="w-1.5 h-1.5 rounded-full bg-darkCard" />
-                <span>Autonomous AI &amp; MCP Swarms</span>
+                <span>MCP AI Agent Tooling</span>
               </span>
             </motion.div>
           </div>
@@ -234,7 +234,7 @@ export default function Hero() {
                 >
                   <Cpu className="w-3.5 h-3.5 text-accentViolet" />
                   <span className="text-[11px] font-medium text-primaryText">
-                    Systems Architect
+                    Full-Stack Engineer
                   </span>
                 </motion.div>
 
@@ -254,7 +254,7 @@ export default function Hero() {
                 >
                   <Terminal className="w-3.5 h-3.5 text-accentGreen" />
                   <span className="text-[11px] font-mono">
-                    Go · Next.js · Offline PWA
+                    Go · Next.js · Electron · Expo
                   </span>
                 </motion.div>
               </motion.div>

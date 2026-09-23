@@ -1,4 +1,4 @@
-﻿export interface ServicePillar {
+export interface ServicePillar {
   id: string;
   title: string;
   badge: string;
@@ -10,45 +10,45 @@
 
 export const services: ServicePillar[] = [
   {
-    id: "distributed-systems",
-    title: "Distributed Backends & Microservices",
-    badge: "High Concurrency",
-    featured: false,
-    description: "Architecting high-throughput Go and NestJS backends capable of ingesting high-frequency IoT streams, managing distributed queues, and fanning out real-time WebSocket payloads with sub-millisecond overhead.",
-    tags: ["Go Channels", "NestJS 11", "WebSockets", "PostgreSQL", "Docker"],
-    deliverables: [
-      "High-throughput IoT & telemetry ingestion pipelines",
-      "Event-driven microservice architectures & message queues",
-      "Database schema design, indexing & multi-tenant isolation",
-      "RESTful & WebSocket API design with rate-limiting"
-    ]
-  },
-  {
-    id: "fullstack-saas",
-    title: "Full-Stack SaaS & Offline-First Apps",
-    badge: "Core Engineering",
+    id: "payments-kenya-rails",
+    title: "Payments & Kenya Rails Engineering",
+    badge: "M-Pesa · Paystack · eTIMS",
     featured: true, // Electric Violet #7430F7
-    description: "Delivering modern React 19 and Next.js 15 enterprise SaaS products paired with offline-first mobile and desktop applications that store data locally in SQLite and synchronize seamlessly when connected.",
-    tags: ["Next.js 15", "React 19", "React Native Expo", "Offline SQLite", "MCP AI"],
+    description: "Production payment integrations across Kenya's rails: M-Pesa Daraja STK Push with IP-guarded C2B callbacks, Paystack card payments with raw-byte webhook verification, and KRA eTIMS OSCU/VSCU fiscalization with encrypted credential stores.",
+    tags: ["M-Pesa Daraja", "Paystack", "KRA eTIMS", "HMAC-SHA256", "Webhooks"],
     deliverables: [
-      "Next.js App Router enterprise platforms with optimal SSR/SSG",
-      "Offline-first mobile (Expo 57) & desktop (Electron) applications",
-      "Native Model Context Protocol (MCP) AI agent integrations",
-      "Zero-knowledge client-side encryption vaults (PBKDF2/AES-GCM)"
-    ]
+      "M-Pesa Daraja STK Push & C2B callback reconciliation queues",
+      "Paystack card checkout with timing-safe, raw-byte webhook verification",
+      "KRA eTIMS fiscalization workers (OSCU/VSCU, AES-256 credentials)",
+      "Subscription lifecycle billing: renewals, dunning, access walls",
+    ],
   },
   {
-    id: "fintech-automation",
-    title: "Fintech, Fiscalization & Network Automation",
-    badge: "Compliance & Telco",
+    id: "offline-first-systems",
+    title: "Offline-First Desktop, Mobile & POS",
+    badge: "SQLite · Sync · Hardware",
     featured: false,
-    description: "Bridging mission-critical hardware and payment infrastructure: automated KRA eTIMS OSCU/VSCU fiscalization, M-Pesa Daraja STK/C2B queues, Paystack split payments, and MikroTik RouterOS network daemons.",
-    tags: ["M-Pesa Daraja", "KRA eTIMS", "Paystack", "MikroTik :8728", "NOC Dashboards"],
+    description: "Desktop and mobile systems that keep working when the network doesn't: Electron POS suites, Expo/React Native apps, and local-first SQLite stores with deterministic batch sync — plus hardware-bound licensing and peripheral integrations.",
+    tags: ["Electron", "React Native (Expo)", "SQLite", "Hardware Licensing", "ESC/POS"],
     deliverables: [
-      "Automated KRA eTIMS fiscal tax compliance workers with AES-256 keys",
-      "Instant M-Pesa STK Push and C2B Paybill webhook reconciliation queues",
-      "MikroTik RouterOS socket API daemon automation for ISPs & hotspots",
-      "Paystack recurring subscription lifecycle walls and split payouts"
-    ]
-  }
+      "Offline-first Electron & Expo apps with local-first SQLite",
+      "Deterministic reconnect sync and background data pipelines",
+      "Hardware-bound JWT licensing (CPU + MAC fingerprinting)",
+      "Thermal printing, cash drawers, and POS peripherals",
+    ],
+  },
+  {
+    id: "realtime-ai-backends",
+    title: "Real-Time Backends & AI Agent Tooling",
+    badge: "Go · WebSockets · MCP",
+    featured: false,
+    description: "High-concurrency backends and AI infrastructure: Go services with WebSocket fan-out, multi-tenant REST APIs, and native Model Context Protocol servers that let AI agents create, complete, and auto-schedule real work.",
+    tags: ["Go (Chi, pgxpool)", "WebSockets/Socket.IO", "MCP Servers", "AI SDK", "PostgreSQL"],
+    deliverables: [
+      "High-concurrency Go ingestion with real-time WebSocket fan-out",
+      "Multi-tenant SaaS APIs with row-level security & RBAC",
+      "Native MCP servers exposing typed agent tools",
+      "Multi-model LLM orchestration (Anthropic, OpenAI, Groq, Mistral)",
+    ],
+  },
 ];
