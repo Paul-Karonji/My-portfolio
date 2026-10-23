@@ -1,79 +1,332 @@
-﻿@import "tailwindcss/base";
-@import "tailwindcss/components";
-@import "tailwindcss/utilities";
+﻿@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-@layer base {
-  :root {
-    --canvas: #F7F7F7;
-    --surface: #FFFFFF;
-    --dark-card: #111111;
-    --charcoal: #1F1F1F;
-    --primary-text: #111111;
-    --muted-text: #6C7179;
-    --border-hairline: #D1D3D6;
-    --accent-violet: #7430F7;
-    --accent-green: #00C047;
-    --accent-yellow: #EFCE03;
+/* ============================================================
+   Paul Karonji — Portfolio design system
+   "Ink" — warm dark, lavender/rose accents, engineering mono.
+   ============================================================ */
+
+:root {
+  --ink: #08080c;
+  --ink-2: #0d0d13;
+  --surface: #13131b;
+  --surface-2: #1a1a24;
+  --line: rgba(255, 255, 255, 0.075);
+  --line-2: rgba(255, 255, 255, 0.16);
+  --text: #efede9;
+  --text-2: #b3b0bb;
+  --muted: #7b7887;
+  --lav: #b8a4d9;
+  --lav-soft: #cfc2e8;
+  --rose: #d8a7b1;
+  --live: #5ee68c;
+  --amber: #f0b45e;
+
+  --shell: 1280px;
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+* {
+  border-color: var(--line);
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background-color: var(--ink);
+  color: var(--text);
+  font-family: var(--font-body), ui-sans-serif, system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+::selection {
+  background: rgba(184, 164, 217, 0.28);
+  color: #fff;
+}
+
+/* ---------- Scrollbar ---------- */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--ink);
+}
+::-webkit-scrollbar-thumb {
+  background: #26262f;
+  border-radius: 999px;
+  border: 2px solid var(--ink);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #35353f;
+}
+
+/* ---------- Ambient background ---------- */
+.bg-field {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(900px 520px at 78% -8%, rgba(184, 164, 217, 0.14), transparent 62%),
+    radial-gradient(760px 480px at 8% 12%, rgba(216, 167, 177, 0.09), transparent 60%),
+    radial-gradient(1100px 700px at 50% 108%, rgba(120, 100, 170, 0.1), transparent 65%);
+}
+
+.bg-grid {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(to right, rgba(255, 255, 255, 0.032) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.032) 1px, transparent 1px);
+  background-size: 76px 76px;
+  mask-image: radial-gradient(ellipse 120% 80% at 50% 0%, #000 25%, transparent 78%);
+  -webkit-mask-image: radial-gradient(ellipse 120% 80% at 50% 0%, #000 25%, transparent 78%);
+}
+
+.bg-noise {
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0.032;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* ---------- Typography helpers ---------- */
+.display {
+  font-family: var(--font-display), sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.035em;
+  line-height: 0.96;
+}
+
+.eyebrow {
+  font-family: var(--font-mono), monospace;
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.mono-tag {
+  font-family: var(--font-mono), monospace;
+  font-size: 11px;
+  letter-spacing: 0.06em;
+}
+
+.gradient-wash {
+  background: linear-gradient(100deg, #ffffff 0%, #cfc2e8 42%, #d8a7b1 88%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* ---------- Section chrome ---------- */
+.section {
+  position: relative;
+  padding: clamp(76px, 10vw, 148px) 0;
+}
+
+.rule-top {
+  border-top: 1px solid var(--line);
+}
+
+/* ---------- Scroll reveal ---------- */
+.reveal {
+  opacity: 0;
+  transform: translateY(22px);
+  transition:
+    opacity 0.75s var(--ease-out),
+    transform 0.75s var(--ease-out);
+  transition-delay: var(--reveal-delay, 0ms);
+}
+.reveal.is-in {
+  opacity: 1;
+  transform: none;
+}
+
+/* ---------- Live status dot ---------- */
+.live-dot {
+  position: relative;
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  border-radius: 999px;
+  background: var(--live);
+  flex: none;
+}
+.live-dot::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 999px;
+  background: var(--live);
+  animation: pulseDot 2.4s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+/* ---------- Buttons ---------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  border-radius: var(--pill);
+  font-size: 14px;
+  font-weight: 500;
+  padding: 12px 20px;
+  transition:
+    transform 0.28s var(--ease-out),
+    background-color 0.28s var(--ease-out),
+    border-color 0.28s var(--ease-out),
+    color 0.28s var(--ease-out);
+  white-space: nowrap;
+}
+.btn:active {
+  transform: translateY(1px);
+}
+.btn-primary {
+  background: var(--text);
+  color: #0a0a0f;
+}
+.btn-primary:hover {
+  background: #fff;
+  transform: translateY(-2px);
+}
+.btn-ghost {
+  border: 1px solid var(--line-2);
+  color: var(--text);
+  background: transparent;
+}
+.btn-ghost:hover {
+  border-color: rgba(255, 255, 255, 0.34);
+  background: rgba(255, 255, 255, 0.045);
+  transform: translateY(-2px);
+}
+
+/* ---------- Project image frame ---------- */
+.shot {
+  position: relative;
+  overflow: hidden;
+  background: var(--surface);
+  border: 1px solid var(--line);
+}
+.shot img {
+  transition: transform 0.7s var(--ease-out);
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.shot::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 45%, rgba(8, 8, 12, 0.75) 100%);
+  opacity: 0;
+  transition: opacity 0.45s var(--ease-out);
+}
+.group:hover .shot img {
+  transform: scale(1.045);
+}
+.group:hover .shot::after {
+  opacity: 1;
+}
+
+/* ---------- Terminal ---------- */
+.term-line {
+  animation: termIn 0.45s var(--ease-out) both;
+}
+@keyframes termIn {
+  from {
+    opacity: 0;
+    transform: translateY(5px);
   }
-
-  html {
-    scroll-behavior: auto;
-    background-color: var(--canvas);
-    color: var(--primary-text);
-  }
-
-  body {
-    background-color: var(--canvas);
-    color: var(--primary-text);
-    font-family: var(--font-instrument), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-    -webkit-font-smoothing: antialiased;
-    overflow-x: hidden;
+  to {
+    opacity: 1;
+    transform: none;
   }
 }
 
-/* Lenis smooth scrolling rules */
-html.lenis, html.lenis body {
-  height: auto;
+.caret::after {
+  content: "▌";
+  color: var(--lav);
+  animation: caret 1.05s steps(1) infinite;
+  margin-left: 2px;
 }
 
-.lenis.lenis-smooth {
-  scroll-behavior: auto !important;
+/* ---------- Marquee ---------- */
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee 42s linear infinite;
+}
+.marquee:hover .marquee-track {
+  animation-play-state: paused;
 }
 
-.lenis.lenis-smooth [data-lenis-prevent] {
-  overscroll-behavior: contain;
-}
-
-.lenis.lenis-stopped {
+/* ---------- Card hover sheen ---------- */
+.sheen {
+  position: relative;
   overflow: hidden;
 }
-
-.lenis.lenis-scrolling iframe {
-  pointer-events: none;
+.sheen::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 40%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.055),
+    transparent
+  );
+  transform: translateX(-120%);
+  opacity: 0;
+}
+.group:hover .sheen::before {
+  opacity: 1;
+  animation: sweep 1.5s var(--ease-out);
 }
 
-/* Subtle background grain for dark sections */
-.bg-noise {
-  background-image: radial-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 0);
-  background-size: 24px 24px;
+/* ---------- Link underline ---------- */
+.link-quiet {
+  color: var(--text-2);
+  transition: color 0.25s var(--ease-out);
+}
+.link-quiet:hover {
+  color: var(--text);
 }
 
-/* Keyframe for live availability pulse */
-@keyframes pulse-ring {
-  0% {
-    transform: scale(0.95);
-    box-shadow: 0 0 0 0 rgba(0, 192, 71, 0.7);
-  }
-  70% {
-    transform: scale(1);
-    box-shadow: 0 0 0 8px rgba(0, 192, 71, 0);
-  }
-  100% {
-    transform: scale(0.95);
-    box-shadow: 0 0 0 0 rgba(0, 192, 71, 0);
-  }
+/* ---------- Archive dot ---------- */
+.lang-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 999px;
+  flex: none;
 }
 
-.animate-pulse-ring {
-  animation: pulse-ring 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+/* ---------- Reduced motion ---------- */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
 }

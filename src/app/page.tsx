@@ -1,37 +1,26 @@
-﻿import Navbar from "@/components/Navbar";
+﻿import Nav from "@/components/Nav";
 import Hero from "@/components/Hero";
-import FeaturedWorks from "@/components/FeaturedWorks";
-import SocialProof from "@/components/SocialProof";
-import Services from "@/components/Services";
-import HowItWorks from "@/components/HowItWorks";
-import FAQs from "@/components/FAQs";
+import Principles from "@/components/Principles";
+import Flagships from "@/components/Flagships";
+import Lab from "@/components/Lab";
+import Systems from "@/components/Systems";
+import Stack from "@/components/Stack";
+import Archive from "@/components/Archive";
+import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
-    <main className="relative flex flex-col min-h-screen bg-canvas overflow-x-hidden">
-      {/* 1. Sticky Navigation */}
-      <Navbar />
-
-      {/* 2. Cinematic Scroll-Zoom Hero */}
+    <main className="relative flex min-h-screen flex-col">
+      <Nav />
       <Hero />
-
-      {/* 3. Featured 2-Column Bento Project Grid */}
-      <FeaturedWorks />
-
-      {/* 4. Social Proof & Quantitative Metrics */}
-      <SocialProof />
-
-      {/* 5. Core Architectural Services (Featured Electric Violet Card) */}
-      <Services />
-
-      {/* 6. Dark #111111 5-Step Engineering Lifecycle */}
-      <HowItWorks />
-
-      {/* 7. Interactive Accordion FAQs */}
-      <FAQs />
-
-      {/* 8. Closing Display CTA & Structured Directory Footer */}
+      <Principles />
+      <Flagships />
+      <Lab />
+      <Systems />
+      <Stack />
+      <Archive />
+      <Contact />
       <Footer />
     </main>
   );
