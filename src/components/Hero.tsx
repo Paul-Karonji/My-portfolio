@@ -1,268 +1,142 @@
-"use client";
-
-import { useRef } from "react";
-import Image from "next/image";
-import { motion, useScroll, useTransform, useMotionValue, useSpring } from "framer-motion";
-import { Mail, ArrowDown, Terminal, Cpu } from "lucide-react";
 import { profile } from "@/data/profile";
+import Reveal from "./Reveal";
 
 export default function Hero() {
-  const containerRef = useRef<HTMLDivElement>(null);
-
-  // Mouse tracking for dynamic 3D tilt & parallax on desktop
-  const mouseX = useMotionValue(0);
-  const mouseY = useMotionValue(0);
-  const springConfig = { damping: 25, stiffness: 120 };
-  const springX = useSpring(mouseX, springConfig);
-  const springY = useSpring(mouseY, springConfig);
-
-  const rotateX = useTransform(springY, [-0.5, 0.5], [8, -8]);
-  const rotateY = useTransform(springX, [-0.5, 0.5], [-8, 8]);
-  const moveX = useTransform(springX, [-0.5, 0.5], [-12, 12]);
-  const moveY = useTransform(springY, [-0.5, 0.5], [-12, 12]);
-
-  const handleMouseMove = (e: React.MouseEvent<HTMLElement>) => {
-    const rect = containerRef.current?.getBoundingClientRect();
-    if (!rect) return;
-    const x = (e.clientX - rect.left) / rect.width - 0.5;
-    const y = (e.clientY - rect.top) / rect.height - 0.5;
-    mouseX.set(x);
-    mouseY.set(y);
-  };
-
-  const handleMouseLeave = () => {
-    mouseX.set(0);
-    mouseY.set(0);
-  };
-
-  // Scroll parallax
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start start", "end start"],
-  });
-  const heroOpacity = useTransform(scrollYProgress, [0, 0.85], [1, 0.15]);
-  const heroParallaxY = useTransform(scrollYProgress, [0, 1], [0, 50]);
-
   return (
-    <section
-      ref={containerRef}
-      onMouseMove={handleMouseMove}
-      onMouseLeave={handleMouseLeave}
-      className="relative w-full min-h-[92vh] lg:min-h-screen pt-28 sm:pt-32 pb-16 lg:pb-24 flex items-center overflow-hidden bg-surface"
-    >
-      {/* Subtle ambient lighting gradients in background */}
-      <div className="absolute top-1/4 left-1/4 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-accentViolet/5 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute bottom-1/4 right-1/4 translate-x-1/3 translate-y-1/3 w-[450px] h-[450px] bg-accentGreen/5 rounded-full blur-3xl pointer-events-none" />
+    <section id="top" className="relative pt-32 pb-20 sm:pt-40 sm:pb-24">
+      <div className="mx-auto max-w-shell px-5 sm:px-8">
+        <div className="grid gap-14 lg:grid-cols-[1.15fr_0.85fr] lg:items-center lg:gap-16">
+          {/* ---------------- left ---------------- */}
+          <div>
+            <Reveal>
+              <div className="flex flex-wrap items-center gap-3">
+                <div className="flex items-center gap-2.5 rounded-pill border border-hairline bg-surface/60 py-2 pl-2 pr-4">
+                  <img
+                    src={profile.heroPortrait}
+                    alt={profile.name}
+                    className="h-7 w-7 rounded-full object-cover object-top"
+                  />
+                  <span className="text-[12.5px] text-dim">{profile.role}</span>
+                </div>
+                <div className="flex items-center gap-2 rounded-pill border border-hairline bg-surface/60 py-2 pl-3.5 pr-4">
+                  <span className="live-dot" />
+                  <span className="text-[12.5px] text-dim">{profile.status}</span>
+                </div>
+              </div>
+            </Reveal>
 
-      <motion.div
-        style={{ opacity: heroOpacity, y: heroParallaxY }}
-        className="relative z-10 max-w-[1340px] mx-auto px-6 sm:px-10 w-full"
-      >
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+            <Reveal delay={90}>
+              <h1 className="display mt-8 text-[clamp(2.5rem,6.6vw,4.35rem)]">
+                {profile.headline}
+                <br />
+                {profile.headlineLine2}
+              </h1>
+            </Reveal>
 
-          {/* Text Content Column: Next to the picture on desktop (lg:col-span-7), below picture on mobile */}
-          <div className="order-2 lg:order-1 lg:col-span-7 space-y-6 sm:space-y-8">
-            {/* Availability Badge */}
-            <motion.div
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.55, ease: [0.21, 0.47, 0.32, 0.98] }}
-              className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-canvas/80 backdrop-blur-sm border border-borderHairline shadow-sm hover:scale-[1.02] transition-transform duration-200"
-            >
-              <span className="relative flex h-2.5 w-2.5">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-accentGreen opacity-75" />
-                <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-accentGreen" />
-              </span>
-              <span className="text-[12px] sm:text-[13px] font-medium text-primaryText tracking-tight">
-                {profile.statusBadge}
-              </span>
-            </motion.div>
+            <Reveal delay={170}>
+              <p className="mt-7 max-w-[56ch] text-[16.5px] leading-[1.72] text-dim">
+                {profile.bio}
+              </p>
+            </Reveal>
 
-            {/* Display Headline — word-by-word clip reveal */}
-            <motion.h1
-              initial="hidden"
-              animate="show"
-              variants={{
-                hidden: {},
-                show: { transition: { staggerChildren: 0.06, delayChildren: 0.1 } },
-              }}
-              className="text-[34px] sm:text-[44px] md:text-[48px] lg:text-[50px] xl:text-[56px] font-medium text-primaryText leading-[1.1] tracking-[-0.03em]"
-            >
-              {[
-                "I", "ship", "production", "systems",
-                "with", "live", "users", "—",
-                "payments,", "health,", "fleet,", "AI",
-              ].map((word, i) => (
-                <span key={i} className="inline-block overflow-hidden mr-[0.28em] last:mr-0">
-                  <motion.span
-                    className="inline-block"
-                    variants={{
-                      hidden: { y: "110%", opacity: 0 },
-                      show: {
-                        y: "0%",
-                        opacity: 1,
-                        transition: { duration: 0.55, ease: [0.16, 1, 0.3, 1] },
-                      },
-                    }}
+            <Reveal delay={230}>
+              <div className="mt-7 flex flex-wrap items-center gap-2">
+                <span className="eyebrow mr-1 !text-[10px]">Into</span>
+                {profile.interests.map((item) => (
+                  <span
+                    key={item}
+                    className="mono-tag rounded-pill border border-hairline px-2.5 py-1 text-[10.5px] text-muted"
                   >
-                    {word}
-                  </motion.span>
-                </span>
-              ))}
-            </motion.h1>
+                    {item}
+                  </span>
+                ))}
+              </div>
+            </Reveal>
 
+            <Reveal delay={290}>
+              <p className="mt-8 text-[15px] text-text">{profile.ask}</p>
+            </Reveal>
 
-            {/* Narrative Bio */}
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.65, delay: 0.16, ease: [0.21, 0.47, 0.32, 0.98] }}
-              className="text-[15px] sm:text-[17px] text-mutedText leading-relaxed max-w-2xl"
-            >
-              Full-stack engineer shipping production systems with live users: a hospital platform running in 3 hospitals, SaaS products processing real card payments, and an offline-first POS suite with KRA eTIMS fiscalization. 3+ years across Kenya&apos;s payment rails, offline-first architecture, real-time systems, and MCP AI tooling.
-            </motion.p>
-
-            {/* Action Buttons */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.65, delay: 0.24, ease: [0.21, 0.47, 0.32, 0.98] }}
-              className="flex flex-wrap items-center gap-3.5 pt-2"
-            >
-              <a
-                href={`mailto:${profile.email}?subject=Architecture%20Inquiry%20-%20Paul%20Karonji`}
-                className="inline-flex items-center gap-2 px-6 py-3.5 rounded-btn bg-darkCard text-surface text-[14px] font-medium shadow-luzia-btn hover:scale-[1.03] active:scale-[0.98] transition-all duration-200"
-              >
-                <Mail className="w-4 h-4 text-accentGreen" />
-                <span>Email Me</span>
-              </a>
-              <a
-                href="#work"
-                className="inline-flex items-center gap-2 px-5 py-3.5 rounded-btn bg-canvas text-primaryText text-[14px] font-medium border border-borderHairline/80 hover:bg-borderHairline/40 hover:scale-[1.02] active:scale-[0.98] transition-all duration-200"
-              >
-                <span>Explore Systems</span>
-                <ArrowDown className="w-4 h-4 text-mutedText" />
-              </a>
-            </motion.div>
-
-            {/* Quick Architecture Proof Strip */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.7, delay: 0.32 }}
-              className="pt-4 border-t border-borderHairline/60 flex flex-wrap items-center gap-4 sm:gap-6 text-[13px] text-mutedText"
-            >
-              <span className="flex items-center gap-1.5">
-                <span className="w-1.5 h-1.5 rounded-full bg-accentViolet" />
-                <span>10+ Production Systems</span>
-              </span>
-              <span className="flex items-center gap-1.5">
-                <span className="w-1.5 h-1.5 rounded-full bg-accentGreen" />
-                <span>KRA eTIMS &amp; M-Pesa Rails</span>
-              </span>
-              <span className="flex items-center gap-1.5">
-                <span className="w-1.5 h-1.5 rounded-full bg-darkCard" />
-                <span>MCP AI Agent Tooling</span>
-              </span>
-            </motion.div>
+            <Reveal delay={340}>
+              <div className="mt-6 flex flex-wrap items-center gap-3">
+                <a href="#work" className="btn btn-primary">
+                  See the work
+                  <svg
+                    width="14"
+                    height="14"
+                    viewBox="0 0 14 14"
+                    fill="none"
+                    aria-hidden="true"
+                  >
+                    <path
+                      d="M7 1.5v11M7 12.5 3 8.5M7 12.5l4-4"
+                      stroke="currentColor"
+                      strokeWidth="1.6"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                </a>
+                <a
+                  href={profile.github}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="btn btn-ghost"
+                >
+                  <svg width="15" height="15" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+                    <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.6 7.6 0 0 1 4 0c1.53-1.03 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.28.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8Z" />
+                  </svg>
+                  GitHub
+                </a>
+                <a
+                  href={profile.resumeUrl}
+                  download
+                  className="btn btn-ghost"
+                >
+                  CV
+                </a>
+              </div>
+            </Reveal>
           </div>
 
-          {/* Picture Column: Next to the words on desktop (lg:col-span-5), on top on mobile */}
-          <div className="order-1 lg:order-2 lg:col-span-5 flex justify-center items-center relative">
-            {/* Ambient Radiant Glow behind Paul */}
-            <motion.div
-              animate={{
-                scale: [1, 1.12, 1],
-                opacity: [0.35, 0.6, 0.35],
-              }}
-              transition={{
-                duration: 7,
-                repeat: Infinity,
-                ease: "easeInOut",
-              }}
-              className="absolute w-[280px] sm:w-[380px] lg:w-[440px] h-[340px] sm:h-[460px] lg:h-[540px] rounded-full bg-gradient-to-tr from-accentViolet/20 via-accentGreen/15 to-accentViolet/20 blur-3xl pointer-events-none"
-            />
-
-            {/* Interactive 3D Parallax & Floating Wrapper */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.94 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.75, ease: [0.16, 1, 0.3, 1] }}
-              style={{
-                perspective: 1000,
-                rotateX,
-                rotateY,
-                x: moveX,
-                y: moveY,
-              }}
-              className="relative w-full max-w-[340px] sm:max-w-[420px] lg:max-w-[480px] flex justify-center items-center"
-            >
-              {/* Continuous Breathing / Floating Motion */}
-              <motion.div
-                animate={{
-                  y: [0, -12, 0],
-                  rotate: [0, 0.5, 0, -0.5, 0],
-                }}
-                transition={{
-                  duration: 5.5,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                }}
-                className="relative w-[280px] sm:w-[360px] lg:w-[420px] xl:w-[460px] h-[360px] sm:h-[460px] lg:h-[540px] xl:h-[580px]"
-              >
-                <Image
-                  src="/images/hero-cutout.webp"
-                  alt={profile.name}
-                  fill
-                  priority
-                  className="object-contain object-bottom select-none pointer-events-none drop-shadow-sm"
-                />
-
-                {/* Floating Micro-Badge: Top Right (Systems Architect) */}
-                <motion.div
-                  animate={{
-                    y: [0, -8, 0],
-                    x: [0, 4, 0],
-                  }}
-                  transition={{
-                    duration: 4.5,
-                    repeat: Infinity,
-                    ease: "easeInOut",
-                    delay: 0.5,
-                  }}
-                  className="absolute top-8 sm:top-12 -right-2 sm:-right-4 px-3.5 py-1.5 rounded-full bg-surface/90 backdrop-blur-md border border-borderHairline shadow-luzia-subtle hidden sm:flex items-center gap-2"
-                >
-                  <Cpu className="w-3.5 h-3.5 text-accentViolet" />
-                  <span className="text-[11px] font-medium text-primaryText">
-                    Full-Stack Engineer
-                  </span>
-                </motion.div>
-
-                {/* Floating Micro-Badge: Bottom Left (Distributed & Offline) */}
-                <motion.div
-                  animate={{
-                    y: [0, 8, 0],
-                    x: [0, -4, 0],
-                  }}
-                  transition={{
-                    duration: 5,
-                    repeat: Infinity,
-                    ease: "easeInOut",
-                    delay: 1,
-                  }}
-                  className="absolute bottom-12 sm:bottom-16 -left-2 sm:-left-6 px-3.5 py-1.5 rounded-full bg-darkCard/90 backdrop-blur-md border border-white/10 text-surface shadow-luzia-card hidden sm:flex items-center gap-2"
-                >
-                  <Terminal className="w-3.5 h-3.5 text-accentGreen" />
-                  <span className="text-[11px] font-mono">
-                    Go · Next.js · Electron · Expo
-                  </span>
-                </motion.div>
-              </motion.div>
-            </motion.div>
-          </div>
-
+          {/* ---------------- right ---------------- */}
+          <Reveal delay={200}>
+            <div className="relative mx-auto max-w-[340px] lg:ml-auto">
+              <div className="absolute left-1/2 top-[18%] -z-10 h-[70%] w-[120%] -translate-x-1/2 rounded-full bg-[radial-gradient(ellipse_at_center,rgba(184,164,217,0.26),rgba(216,167,177,0.1)_45%,transparent_70%)] blur-2xl" />
+              <img
+                src={profile.heroCutout}
+                alt={profile.name}
+                className="relative w-full drop-shadow-[0_18px_50px_rgba(0,0,0,0.55)]"
+              />
+              <div className="mt-6 text-center">
+                <p className="text-[13.5px] text-dim">{profile.name}</p>
+                <p className="mono-tag mt-1 text-[11px] text-muted">
+                  {profile.location} · {profile.timezone}
+                </p>
+              </div>
+            </div>
+          </Reveal>
         </div>
-      </motion.div>
+
+        {/* ---------------- stats ---------------- */}
+        <Reveal delay={380}>
+          <div className="mt-20 grid grid-cols-2 gap-px overflow-hidden rounded-card border border-hairline bg-hairline sm:grid-cols-4">
+            {profile.stats.map((stat) => (
+              <div key={stat.label} className="bg-ink px-5 py-5">
+                <div className="display text-[30px] leading-none text-lavsoft">
+                  {stat.value}
+                </div>
+                <div className="mt-2.5 text-[12.5px] leading-snug text-dim">
+                  {stat.label}
+                </div>
+                <div className="mono-tag mt-1.5 text-[10.5px] leading-relaxed text-muted">
+                  {stat.note}
+                </div>
+              </div>
+            ))}
+          </div>
+        </Reveal>
+      </div>
     </section>
   );
 }

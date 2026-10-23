@@ -1,39 +1,59 @@
 import type { Metadata } from "next";
-import { Instrument_Sans } from "next/font/google";
+import { Inter, JetBrains_Mono, Space_Grotesk } from "next/font/google";
 import "./globals.css";
-import SmoothScroll from "@/components/SmoothScroll";
 import { profile } from "@/data/profile";
 
-const instrumentSans = Instrument_Sans({
+const inter = Inter({
   subsets: ["latin"],
-  variable: "--font-instrument",
-  weight: ["400", "500", "600", "700"],
+  variable: "--font-body",
+  display: "swap",
+});
+
+const spaceGrotesk = Space_Grotesk({
+  subsets: ["latin"],
+  variable: "--font-display",
+  weight: ["400", "500", "700"],
+  display: "swap",
+});
+
+const jetbrains = JetBrains_Mono({
+  subsets: ["latin"],
+  variable: "--font-mono",
+  weight: ["400", "500"],
   display: "swap",
 });
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://paulkaronji.netlify.app"),
-  title: `${profile.name} — ${profile.role}`,
-  description: profile.bio,
+  title: `${profile.name} — AI Enthusiast & Full Stack Developer`,
+  description:
+    "AI enthusiast and full stack developer. I build self-hosted multi-model AI agents, MCP tool servers, and the offline-first hospital, point-of-sale and fintech platforms they run on. Based in Nairobi, Kenya. Looking for internship, junior or remote roles.",
   keywords: [
     "Paul Karonji Waithaka",
-    "Full-Stack Software Engineer",
-    "Go Engineer",
+    "AI Enthusiast",
+    "Full Stack Developer",
+    "AI Agent",
+    "Multi-Agent Systems",
+    "Model Context Protocol",
+    "MCP",
+    "Next.js",
+    "React",
+    "NestJS",
+    "Go",
+    "Electron",
     "M-Pesa Daraja",
     "Paystack",
     "KRA eTIMS",
-    "Offline-first",
-    "React 19",
-    "Next.js",
-    "MCP",
+    "Offline-First",
+    "Nairobi Kenya",
     "WIK Technologies",
-    "Nairobi Kenya"
   ],
-  authors: [{ name: profile.name, url: profile.portfolio }],
+  authors: [{ name: profile.name, url: profile.site }],
+  creator: profile.name,
   openGraph: {
-    title: `${profile.name} — ${profile.role}`,
-    description: profile.tagline,
-    url: profile.portfolio,
+    title: `${profile.name} — AI Enthusiast & Full Stack Developer`,
+    description: profile.bio,
+    url: profile.site,
     siteName: profile.name,
     locale: "en_US",
     type: "website",
@@ -48,10 +68,11 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: `${profile.name} — ${profile.role}`,
-    description: profile.tagline,
+    title: `${profile.name} — AI Enthusiast & Full Stack Developer`,
+    description: profile.bio,
     images: ["/images/hero-portrait.webp"],
   },
+  robots: { index: true, follow: true },
 };
 
 export default function RootLayout({
@@ -60,9 +81,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={instrumentSans.variable}>
-      <body className="antialiased min-h-screen selection:bg-accentViolet selection:text-white">
-        <SmoothScroll>{children}</SmoothScroll>
+    <html
+      lang="en"
+      className={`${inter.variable} ${spaceGrotesk.variable} ${jetbrains.variable}`}
+    >
+      <body className="relative min-h-screen antialiased">
+        <div className="bg-field" aria-hidden="true" />
+        <div className="bg-grid" aria-hidden="true" />
+        <div className="bg-noise" aria-hidden="true" />
+        <div className="relative z-10">{children}</div>
       </body>
     </html>
   );
