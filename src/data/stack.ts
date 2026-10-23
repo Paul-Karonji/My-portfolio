@@ -25,19 +25,6 @@ export const stackGroups: {
   items: string[];
 }[] = [
   {
-    label: "AI & Agents",
-    items: [
-      "Model Context Protocol",
-      "AI SDK",
-      "Multi-model routing",
-      "Agent skills",
-      "Embeddings",
-      "Pinecone",
-      "Vector retrieval",
-      "Context compression",
-    ],
-  },
-  {
     label: "Languages",
     items: [
       "TypeScript",
@@ -102,6 +89,19 @@ export const stackGroups: {
       "GitHub Actions",
       "Sentry",
       "Playwright",
+    ],
+  },
+  {
+    label: "AI & Agents",
+    items: [
+      "Model Context Protocol",
+      "AI SDK",
+      "Multi-model routing",
+      "Agent skills",
+      "Embeddings",
+      "Pinecone",
+      "Vector retrieval",
+      "Context compression",
     ],
   },
 ];

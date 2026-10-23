@@ -16,8 +16,8 @@ export default function Contact() {
                 </div>
 
                 <h2 className="display mt-6 text-[clamp(2.1rem,5.4vw,3.5rem)]">
-                  Got something that{" "}
-                  <span className="gradient-wash">has to survive?</span>
+                  Got something{" "}
+                  in mind?
                 </h2>
 
                 <p className="mt-6 max-w-[52ch] text-[16px] leading-[1.7] text-dim">

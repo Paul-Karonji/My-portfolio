@@ -25,9 +25,86 @@ export interface Flagship {
  * shape that proves an engineer has actually shipped.
  */
 export const flagships: Flagship[] = [
-  {
-    id: "hiro",
+{
+    id: "wik-pos",
     index: "01",
+    title: "WIK-POS",
+    kicker: "Offline-first desktop POS with KRA eTIMS fiscalisation",
+    category: "Fintech · Fiscal Compliance · Offline-First",
+    summary:
+      "A desktop point-of-sale suite that keeps selling when the network drops, and whose receipts are actually legal — fiscalised to KRA eTIMS.",
+    problem:
+      "A Kenyan shop loses signal every afternoon, so a point-of-sale system that needs the cloud to print a receipt stops selling. And a receipt that is not fiscalised is not a legal receipt. Most POS software in this market solves one of those two problems and quietly ignores the other.",
+    build:
+      "An Electron, React and SQLite desktop suite with hardware-bound JWT licensing (CPU and MAC fingerprint, verified centrally with remote revocation), M-Pesa Daraja STK Push behind IP-guarded callbacks, and a KRA eTIMS fiscalisation worker that holds AES-256 encrypted tax credentials. Retail, hotel F&B and pharmacy editions ship from the same codebase as modular installs.",
+    hard:
+      "Fiscalising without connectivity. The eTIMS OSCU/VSCU worker signs fiscal documents locally, queues them when the link is down, and replays them in order on reconnect — and every payment callback has to be IP allow-listed, because STK push moves money on the strength of a webhook arriving from a known address.",
+    outcome:
+      "Three editions in production across retail, hospitality and pharmacy, with hardware-bound licensing that resists forged activations and supports remote revocation. Installers ship for Windows, Mac and Linux.",
+    stack: [
+      "Electron",
+      "React",
+      "TypeScript",
+      "SQLite",
+      "KRA eTIMS OSCU/VSCU",
+      "M-Pesa Daraja",
+      "JWT hardware binding",
+      "LAN sockets",
+      "ESC/POS",
+    ],
+    highlights: [
+      "Hardware-bound JWT licensing with remote revocation",
+      "KRA eTIMS fiscalisation with offline queue + replay",
+      "M-Pesa Daraja STK Push, IP-guarded callbacks",
+      "Retail, hotel F&B and pharmacy editions",
+      "Local LAN socket sync across terminals",
+    ],
+    image: "/images/projects/wik-pos-desktop.webp",
+    imageAlt: "WIK-POS desktop application",
+    link: "https://pos.wiktechnologies.com/",
+    linkLabel: "Live product",
+    badge: "In production",
+  },
+{
+    id: "wik-hms",
+    index: "02",
+    title: "WIK HMS",
+    kicker: "Hospital management system, live in three hospitals",
+    category: "Healthcare · Enterprise ERP",
+    summary:
+      "Triage, pharmacy, billing and insurance claims in one system — deployed as white-labelled instances now running clinical operations in three hospitals.",
+    problem:
+      "Hospitals run on paper and WhatsApp. Triage, pharmacy stock, patient billing and insurance claims each live somewhere different, and the pharmacy's real risk is expiry rather than stock count — yet almost every pharmacy system in the market tracks quantity and ignores dates.",
+    build:
+      "A Laravel 12 and React 19 hospital platform deployed as per-client white-labelled instances: 200+ REST endpoints across 56 migrations, an Observer pattern that posts every clinical event into the billing ledger automatically, real-time triage queues, and FEFO pharmacy registers that dispense the oldest batch first rather than the easiest to find.",
+    hard:
+      "Regulatory reality, not feature count. The pharmacy module has to satisfy Pharmacy and Poisons Board rules with complete batch tracking and expiry-driven dispensing, while billing has to reconcile against SHA insurance claims without a nightly reconciliation job hanging off the critical path.",
+    outcome:
+      "Live in three hospitals. Clinical, pharmacy and billing workflows run every day with real patient volume, on instances that look like the hospital's own software rather than a vendor's template.",
+    stack: [
+      "Laravel 12",
+      "React 19",
+      "MySQL",
+      "Observer Pattern",
+      "REST API",
+      "White-label deployment",
+    ],
+    highlights: [
+      "Live in three hospitals as per-client instances",
+      "200+ endpoints across 56 migrations",
+      "Observer-pattern automated ledger billing",
+      "Real-time triage queues",
+      "FEFO pharmacy registers with expiry safety",
+    ],
+    image: "/images/projects/wik-hms.webp",
+    imageAlt: "WIK HMS healthcare platform",
+    link: "https://hmisdemo.wiktechnologies.com/",
+    linkLabel: "Live demo",
+    badge: "In production",
+  },
+{
+    id: "hiro",
+    index: "03",
     title: "Hiro",
     kicker: "Self-hosted multi-model AI agent",
     category: "AI Agent · Multi-Model Orchestration",
@@ -65,82 +142,5 @@ export const flagships: Flagship[] = [
     imageAlt: "Hiro agent interface",
     github: "https://github.com/Paul-Karonji/Hiro",
     badge: "Open source",
-  },
-  {
-    id: "wik-hms",
-    index: "02",
-    title: "WIK HMS",
-    kicker: "Hospital management system, live in three hospitals",
-    category: "Healthcare · Enterprise ERP",
-    summary:
-      "Triage, pharmacy, billing and insurance claims in one system — deployed as white-labelled instances now running clinical operations in three hospitals.",
-    problem:
-      "Hospitals run on paper and WhatsApp. Triage, pharmacy stock, patient billing and insurance claims each live somewhere different, and the pharmacy's real risk is expiry rather than stock count — yet almost every pharmacy system in the market tracks quantity and ignores dates.",
-    build:
-      "A Laravel 12 and React 19 hospital platform deployed as per-client white-labelled instances: 200+ REST endpoints across 56 migrations, an Observer pattern that posts every clinical event into the billing ledger automatically, real-time triage queues, and FEFO pharmacy registers that dispense the oldest batch first rather than the easiest to find.",
-    hard:
-      "Regulatory reality, not feature count. The pharmacy module has to satisfy Pharmacy and Poisons Board rules with complete batch tracking and expiry-driven dispensing, while billing has to reconcile against SHA insurance claims without a nightly reconciliation job hanging off the critical path.",
-    outcome:
-      "Live in three hospitals. Clinical, pharmacy and billing workflows run every day with real patient volume, on instances that look like the hospital's own software rather than a vendor's template.",
-    stack: [
-      "Laravel 12",
-      "React 19",
-      "MySQL",
-      "Observer Pattern",
-      "REST API",
-      "White-label deployment",
-    ],
-    highlights: [
-      "Live in three hospitals as per-client instances",
-      "200+ endpoints across 56 migrations",
-      "Observer-pattern automated ledger billing",
-      "Real-time triage queues",
-      "FEFO pharmacy registers with expiry safety",
-    ],
-    image: "/images/projects/wik-hms.webp",
-    imageAlt: "WIK HMS healthcare platform",
-    link: "https://hmisdemo.wiktechnologies.com/",
-    linkLabel: "Live demo",
-    badge: "In production",
-  },
-  {
-    id: "wik-pos",
-    index: "03",
-    title: "WIK-POS",
-    kicker: "Offline-first desktop POS with KRA eTIMS fiscalisation",
-    category: "Fintech · Fiscal Compliance · Offline-First",
-    summary:
-      "A desktop point-of-sale suite that keeps selling when the network drops, and whose receipts are actually legal — fiscalised to KRA eTIMS.",
-    problem:
-      "A Kenyan shop loses signal every afternoon, so a point-of-sale system that needs the cloud to print a receipt stops selling. And a receipt that is not fiscalised is not a legal receipt. Most POS software in this market solves one of those two problems and quietly ignores the other.",
-    build:
-      "An Electron, React and SQLite desktop suite with hardware-bound JWT licensing (CPU and MAC fingerprint, verified centrally with remote revocation), M-Pesa Daraja STK Push behind IP-guarded callbacks, and a KRA eTIMS fiscalisation worker that holds AES-256 encrypted tax credentials. Retail, hotel F&B and pharmacy editions ship from the same codebase as modular installs.",
-    hard:
-      "Fiscalising without connectivity. The eTIMS OSCU/VSCU worker signs fiscal documents locally, queues them when the link is down, and replays them in order on reconnect — and every payment callback has to be IP allow-listed, because STK push moves money on the strength of a webhook arriving from a known address.",
-    outcome:
-      "Three editions in production across retail, hospitality and pharmacy, with hardware-bound licensing that resists forged activations and supports remote revocation. Installers ship for Windows, Mac and Linux.",
-    stack: [
-      "Electron",
-      "React",
-      "TypeScript",
-      "SQLite",
-      "KRA eTIMS OSCU/VSCU",
-      "M-Pesa Daraja",
-      "JWT hardware binding",
-      "LAN sockets",
-      "ESC/POS",
-    ],
-    highlights: [
-      "Hardware-bound JWT licensing with remote revocation",
-      "KRA eTIMS fiscalisation with offline queue + replay",
-      "M-Pesa Daraja STK Push, IP-guarded callbacks",
-      "Retail, hotel F&B and pharmacy editions",
-      "Local LAN socket sync across terminals",
-    ],
-    image: "/images/projects/wik-pos-web.webp",
-    imageAlt: "WIK-POS for Kenyan businesses",
-    link: "https://pos.wiktechnologies.com/",
-    linkLabel: "Live product",
-    badge: "In production",
   },
 ];

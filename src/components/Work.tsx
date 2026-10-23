@@ -121,7 +121,7 @@ export default function Work() {
             title={
               <>
                 Three kinds of{" "}
-                <span className="gradient-wash">things I build.</span>
+                things I build.
               </>
             }
             lede="Some of it is open source because it should be. Some of it runs a hospital or a courier company. Some of it I built just because I wanted it to exist."

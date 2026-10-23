@@ -2,12 +2,12 @@
 
 Live site: **https://paulkaronji.netlify.app**
 
-A portfolio for an AI enthusiast with full-stack experience. Built with Next.js 15
+A portfolio for an AI enthusiast and full stack developer. Built with Next.js 15
 (App Router), React 19, TypeScript and Tailwind CSS.
 
 The v2 rewrite replaced a freelance-agency template (Services / Process / FAQs /
-"Download CV") with a plain claim — **AI enthusiast with full-stack experience** —
-and three deep case studies, plus every project sorted into **Open source**,
+"Download CV") with a plain claim — **AI enthusiast. Full stack developer.** — and
+three deep case studies, plus every project sorted into **Open source**,
 **Enterprise builds** and **Personal tools & side projects**.
 
 ## Stack

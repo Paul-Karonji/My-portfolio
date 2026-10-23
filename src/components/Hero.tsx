@@ -27,8 +27,9 @@ export default function Hero() {
 
             <Reveal delay={90}>
               <h1 className="display mt-8 text-[clamp(2.5rem,6.6vw,4.35rem)]">
-                {profile.headline}{" "}
-                <span className="gradient-wash">{profile.headlineAccent}</span>
+                {profile.headline}
+                <br />
+                {profile.headlineLine2}
               </h1>
             </Reveal>
 
@@ -107,23 +108,11 @@ export default function Hero() {
                 alt={profile.name}
                 className="relative w-full drop-shadow-[0_18px_50px_rgba(0,0,0,0.55)]"
               />
-
-              <div className="absolute -bottom-1 left-1/2 w-[96%] -translate-x-1/2 rounded-tile border border-hairline bg-ink p-4 shadow-[0_18px_40px_rgba(0,0,0,0.5)]">
-                <div className="flex items-center gap-2.5">
-                  <span className="live-dot" />
-                  <span className="eyebrow !text-[9.5px]">Building now</span>
-                </div>
-                <p className="mt-2 text-[14px] font-medium text-text">
-                  Hiro — a self-hosted multi-model agent
+              <div className="mt-6 text-center">
+                <p className="text-[13.5px] text-dim">{profile.name}</p>
+                <p className="mono-tag mt-1 text-[11px] text-muted">
+                  {profile.location} · {profile.timezone}
                 </p>
-                <a
-                  href="https://github.com/Paul-Karonji/Hiro"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="mt-1 inline-block text-[12.5px] text-lav transition-colors hover:text-lavsoft"
-                >
-                  github.com/Paul-Karonji/Hiro
-                </a>
               </div>
             </div>
           </Reveal>

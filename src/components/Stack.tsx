@@ -37,7 +37,7 @@ export default function Stack() {
             title={
               <>
                 The stack I{" "}
-                <span className="gradient-wash">reach for, and why.</span>
+                reach for, and why.
               </>
             }
             lede="Chosen for what it holds up under, not for what it looks like in a tutorial. Money moves through this — M-Pesa, Paystack, KRA eTIMS — so payments and compliance get the same care as the interface."

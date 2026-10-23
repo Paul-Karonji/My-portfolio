@@ -8,7 +8,8 @@
 
 ## 1. Positioning
 
-> **AI enthusiast with full-stack experience.**
+> **AI enthusiast.**
+> **Full stack developer.**
 
 The previous build was structured as a **freelance agency landing page** — Services,
 Process, FAQs, testimonials, "Download CV". That structure says *"hire me for
@@ -34,18 +35,24 @@ first question a reader has:
 - **Enterprise builds** — WIK Technologies and client platforms running in real
   businesses: hospital, POS, logistics, telecom, education, property.
 - **Personal tools & side projects** — built because the author wanted them to
-  exist. Unsent, CineTaste, Framel, ARCH, Bags, the HMS browser demo.
+  exist. Unsent, CineTaste, Framel.
 
 ### What was deliberately removed
 
 - The **Hiro mesh-runner terminal** from the hero — it read as a gimmick, and the
   hero now carries the claim and the portrait instead.
+- **Hiro as the face of the page.** It stays in the open source list and as a
+  case study, but it opens the third case study rather than the first, and
+  nothing in the hero points at it.
+- The **multi-hue gradient on heading words.** Headings are a single colour.
+  Lavender is kept for the mono section numbers, chips and links only.
 - The **repository-count stat and the Archive section** — repo counts are noise.
   The archive was replaced by the category index, which says the same thing with
   real projects attached.
 - The **"Open to Senior / Lead roles"** framing. The ask is now internship,
   junior or remote roles, stated plainly in the hero, the contact section and
   the page metadata.
+- **ARCH, Bags with Mulan and the HMS browser demo** from the work index.
 
 ---
 
@@ -93,8 +100,8 @@ stepping at breakpoints.
 - `.display` — Space Grotesk, tight tracking, display line-height
 - `.eyebrow` — 11px mono, `0.22em` tracking, uppercase, muted
 - `.mono-tag` — 11px mono chip label
-- `.gradient-wash` — white → lavender → rose text clip, used on the emphasised
-  half of each section headline
+- `text-lav` — the single accent colour. Used on mono section numbers, chips
+  and links — **never** on heading words, which stay a single colour.
 
 ---
 

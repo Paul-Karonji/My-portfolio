@@ -39,7 +39,7 @@ export const categories: WorkCategory[] = [
     id: "personal",
     label: "Personal tools & side projects",
     blurb:
-      "Things I built because I wanted them to exist. Design-led front-ends, experiments in commerce and content, and a few ideas that never grew past a weekend.",
+      "Things I built because I wanted them to exist. A private offline diary, a movie companion that learns your taste, and a small commerce backend for a real shop.",
   },
 ];
 
@@ -179,8 +179,8 @@ export const work: WorkItem[] = [
       "KRA eTIMS",
       "M-Pesa Daraja",
     ],
-    image: "/images/projects/wik-pos.webp",
-    imageAlt: "WIK-POS product page",
+    image: "/images/projects/wik-pos-web.webp",
+    imageAlt: "WIK-POS for Kenyan retail, pharmacies and eateries",
     link: "https://pos.wiktechnologies.com/",
     linkLabel: "Live product",
     status: "In production",
@@ -458,42 +458,6 @@ export const work: WorkItem[] = [
     github: "https://github.com/Paul-Karonji/framel",
     linkLabel: "Source",
     status: "Live",
-  },
-  {
-    id: "arch",
-    category: "personal",
-    title: "ARCH Kenya",
-    kicker: "Architecture studio portfolio",
-    blurb:
-      "A luxury-industrial portfolio site — warm earth tones, terracotta and bronze, with heavier motion than this one.",
-    detail:
-      "A design exercise in a completely different key from the rest of my work — serif display type, project showcase and a warmer palette.",
-    stack: ["HTML", "CSS", "JavaScript"],
-    status: "Building",
-  },
-  {
-    id: "bags",
-    category: "personal",
-    title: "Bags with Mulan",
-    kicker: "Luxury handcrafted bags, Nairobi",
-    blurb:
-      "A boutique e-commerce storefront for a real Nairobi maker — minimalist, black and gold, and quietly premium.",
-    detail:
-      "Product storytelling, a clean catalogue and a checkout that gets out of the way of the craft.",
-    stack: ["HTML", "CSS", "JavaScript"],
-    status: "Building",
-  },
-  {
-    id: "hms-demo",
-    category: "personal",
-    title: "HMS Browser Demo",
-    kicker: "A hospital demo with no backend",
-    blurb:
-      "The whole hospital management flow — patients, pharmacy with FEFO batches, lab and billing — running entirely client-side.",
-    detail:
-      "Built so a hospital can click through the entire system on a laptop with no server, no data and no setup. It is how I demo the HMS to people who are not technical.",
-    stack: ["HTML", "CSS", "JavaScript"],
-    status: "Building",
   },
 ];
 

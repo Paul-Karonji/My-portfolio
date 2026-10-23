@@ -25,13 +25,13 @@ const jetbrains = JetBrains_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://paulkaronji.netlify.app"),
-  title: `${profile.name} — AI Enthusiast & Full-Stack Engineer`,
+  title: `${profile.name} — AI Enthusiast & Full Stack Developer`,
   description:
-    "AI enthusiast with full-stack experience. I build self-hosted multi-model AI agents, MCP tool servers, and the offline-first hospital, point-of-sale and fintech platforms they run on. Based in Nairobi, Kenya. Looking for internship, junior or remote roles.",
+    "AI enthusiast and full stack developer. I build self-hosted multi-model AI agents, MCP tool servers, and the offline-first hospital, point-of-sale and fintech platforms they run on. Based in Nairobi, Kenya. Looking for internship, junior or remote roles.",
   keywords: [
     "Paul Karonji Waithaka",
     "AI Enthusiast",
-    "Full-Stack Engineer",
+    "Full Stack Developer",
     "AI Agent",
     "Multi-Agent Systems",
     "Model Context Protocol",
@@ -51,7 +51,7 @@ export const metadata: Metadata = {
   authors: [{ name: profile.name, url: profile.site }],
   creator: profile.name,
   openGraph: {
-    title: `${profile.name} — AI Enthusiast & Full-Stack Engineer`,
+    title: `${profile.name} — AI Enthusiast & Full Stack Developer`,
     description: profile.bio,
     url: profile.site,
     siteName: profile.name,
@@ -68,7 +68,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: `${profile.name} — AI Enthusiast & Full-Stack Engineer`,
+    title: `${profile.name} — AI Enthusiast & Full Stack Developer`,
     description: profile.bio,
     images: ["/images/hero-portrait.webp"],
   },

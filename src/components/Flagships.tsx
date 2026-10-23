@@ -135,7 +135,7 @@ export default function Flagships() {
             title={
               <>
                 Case studies,{" "}
-                <span className="gradient-wash">not a project list.</span>
+                not a project list.
               </>
             }
             lede="A feature list tells you what someone built. These three tell you what was actually hard — and what it took to make it survive contact with real users."

@@ -3,7 +3,7 @@ export interface ProfileData {
   first: string;
   role: string;
   headline: string;
-  headlineAccent: string;
+  headlineLine2: string;
   bio: string;
   ask: string;
   location: string;
@@ -24,9 +24,9 @@ export interface ProfileData {
 export const profile: ProfileData = {
   name: "Paul Karonji Waithaka",
   first: "Paul",
-  role: "AI enthusiast · Full-stack engineer",
-  headline: "AI enthusiast with",
-  headlineAccent: "full-stack experience.",
+  role: "AI enthusiast · Full stack developer",
+  headline: "AI enthusiast.",
+  headlineLine2: "Full stack developer.",
   bio: "I like AI enough to build my own agent stack — a multi-model mesh over Telegram and WhatsApp, an MCP server, a skills system that writes itself. Then I like the unglamorous half: the offline-first POS, hospital and fintech platforms that have to keep working when the network doesn't. Lead Engineer at WIK Technologies, based in Nairobi.",
   ask: "Currently looking for internship, junior or remote roles.",
   location: "Nairobi, Kenya",
