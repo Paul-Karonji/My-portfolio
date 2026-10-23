@@ -32,7 +32,7 @@ export default function Stack() {
       <div className="mx-auto max-w-shell px-5 sm:px-8">
         <Reveal>
           <SectionHead
-            index="04"
+            index="03"
             label="Tooling"
             title={
               <>

@@ -8,26 +8,44 @@
 
 ## 1. Positioning
 
+> **AI enthusiast with full-stack experience.**
+
 The previous build was structured as a **freelance agency landing page** — Services,
 Process, FAQs, testimonials, "Download CV". That structure says *"hire me for
 consulting"*, which was never the story.
 
-The v2 structure says something different and more defensible:
-
-> **AI engineer who ships to production.**
-
-Everything on the page is evidence for that one claim:
+v2 leads with a single plain claim and backs it with evidence. Every project is
+sorted into one of three buckets, because "which kind of work is this?" is the
+first question a reader has:
 
 | Section | Job it does |
 |---|---|
-| Hero | The claim, plus a live-looking agent mesh running beside it |
-| Principles | Why an AI engineer's work is judged on constraints, not demos |
+| Hero | The claim, the ask, and a portrait — no gimmicks |
+| Principles | Why AI work gets judged on constraints, not demos |
 | Flagships | Three deep case studies — problem / build / hard part / outcome |
-| Lab | Breadth: six projects, each answering one specific question |
-| Systems | The long tail of production systems, dense and scannable |
+| Work | The full index, sorted into **Open source / Enterprise builds / Personal tools** |
 | Stack | Tooling, grouped by the kind of pressure it has to withstand |
-| Archive | All 30 repositories — volume and range, no filler |
 | Contact | One clear ask, one address |
+
+### The three categories
+
+- **Open source** — public source you can read, fork or run. Hiro, DueSync,
+  Biashara Hub, VoteWatch.
+- **Enterprise builds** — WIK Technologies and client platforms running in real
+  businesses: hospital, POS, logistics, telecom, education, property.
+- **Personal tools & side projects** — built because the author wanted them to
+  exist. Unsent, CineTaste, Framel, ARCH, Bags, the HMS browser demo.
+
+### What was deliberately removed
+
+- The **Hiro mesh-runner terminal** from the hero — it read as a gimmick, and the
+  hero now carries the claim and the portrait instead.
+- The **repository-count stat and the Archive section** — repo counts are noise.
+  The archive was replaced by the category index, which says the same thing with
+  real projects attached.
+- The **"Open to Senior / Lead roles"** framing. The ask is now internship,
+  junior or remote roles, stated plainly in the hero, the contact section and
+  the page metadata.
 
 ---
 
@@ -98,7 +116,6 @@ Everything respects `prefers-reduced-motion`.
 | Element | Technique |
 |---|---|
 | Section entrance | `.reveal` — opacity + 22px lift, 750ms `cubic-bezier(.22,1,.36,1)`, staggered via `--reveal-delay` |
-| Hero terminal | Typewriter + staggered step rows, ~520ms apart |
 | Status dot | `pulseDot` expanding ring, 2.4s |
 | Marquee | 42s linear translation, pauses on hover |
 | Card sheen | 1.5s diagonal sweep on hover |
@@ -113,14 +130,11 @@ disconnects after the first intersection.
 ```
 src/components/
 ├── Nav.tsx         Sticky nav, adds blur + hairline after 24px of scroll
-├── Hero.tsx        Claim, stats strip, portrait status pill
-├── Terminal.tsx    Animated Hiro mesh-runner (client)
+├── Hero.tsx        Claim, ask, interest chips, portrait, stats strip
 ├── Principles.tsx  Positioning statement + three principles
 ├── Flagships.tsx   Three case-study blocks
-├── Lab.tsx         Filterable six-project grid (client)
-├── Systems.tsx     Dense production-system list
+├── Work.tsx        Category-indexed project grid (client)
 ├── Stack.tsx       Marquee + six grouped tool families
-├── Archive.tsx     All 30 repositories
 ├── Contact.tsx     Closing CTA + details
 ├── Footer.tsx      Directory footer
 ├── SectionHead.tsx Shared section header
@@ -133,21 +147,37 @@ All copy lives in `src/data/` so the site can be re-pointed without touching JSX
 
 | File | Contents |
 |---|---|
-| `profile.ts` | Identity, headline, stats, contact details |
+| `profile.ts` | Identity, headline, ask, stats, contact details |
 | `flagships.ts` | The three case studies |
-| `lab.ts` | Six lab projects + filter tags |
-| `systems.ts` | Production-system long tail |
+| `work.ts` | All projects, each with an explicit `category` |
 | `stack.ts` | Principles + tooling groups |
-| `archive.ts` | Every repository, public and private |
 
----
+## 8. Images
 
-## 8. Notes
+Project images are **live captures** of the deployed sites, not mockups. They were
+grabbed with headless Chrome, resized to 1200px wide and re-encoded to WebP
+(q80) so the page stays light. Projects with no public deployment keep their
+repo screenshot; a few with neither render a monogram tile instead of a broken
+image.
+
+| Source | Example |
+|---|---|
+| `unsent-eosin.vercel.app` | Unsent |
+| `pos.wiktechnologies.com` | WIK-POS |
+| `hmisdemo.wiktechnologies.com` | WIK HMS |
+| `duesync.vercel.app` | DueSync |
+| `biashara-hub-storefront.onrender.com` | Biashara Hub |
+| `juba-errands.vercel.app` | Logit |
+| `ktrack.vercel.app` | K-Track |
+| `wikscholar.onrender.com` | WIK Scholar |
+| `www.mtaakeys.com` | MtaaKeys |
+| `cinetaste.vercel.app` | CineTaste |
+
+## 9. Notes
 
 - Images are plain `<img>` tags with `loading="lazy"` — no `next/image` optimisation,
   so `images.unoptimized` stays on and the build has no native dependency.
 - External links are absolute and point at live deployments; every one was verified
   reachable before shipping.
-- Private repositories are listed in the Archive by name only, with no link.
 - Runtime dependencies are `next`, `react`, `react-dom`. Everything else is
-  dev-only. First Load JS: **108 kB**.
+  dev-only. First Load JS: **111 kB**.

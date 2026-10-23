@@ -2,10 +2,8 @@
 import Hero from "@/components/Hero";
 import Principles from "@/components/Principles";
 import Flagships from "@/components/Flagships";
-import Lab from "@/components/Lab";
-import Systems from "@/components/Systems";
+import Work from "@/components/Work";
 import Stack from "@/components/Stack";
-import Archive from "@/components/Archive";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 
@@ -16,10 +14,8 @@ export default function Home() {
       <Hero />
       <Principles />
       <Flagships />
-      <Lab />
-      <Systems />
+      <Work />
       <Stack />
-      <Archive />
       <Contact />
       <Footer />
     </main>

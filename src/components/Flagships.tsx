@@ -126,12 +126,12 @@ function CaseStudy({ item }: { item: Flagship }) {
 
 export default function Flagships() {
   return (
-    <section id="work" className="section rule-top">
+    <section id="case-studies" className="section rule-top">
       <div className="mx-auto max-w-shell px-5 sm:px-8">
         <Reveal>
           <SectionHead
             index="01"
-            label="Three that carry the argument"
+            label="Three I'm proudest of"
             title={
               <>
                 Case studies,{" "}

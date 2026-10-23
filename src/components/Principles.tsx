@@ -6,15 +6,14 @@ export default function Principles() {
     <section className="rule-top relative">
       <div className="mx-auto max-w-shell px-5 py-20 sm:px-8 sm:py-24">
         <Reveal>
-          <p className="max-w-[30ch] font-display text-[clamp(1.55rem,3.1vw,2.15rem)] font-medium leading-[1.22] tracking-[-0.025em] text-text">
-            A demo that stops at the model{" "}
-            <span className="text-muted">is a demo.</span>
+          <p className="max-w-[32ch] font-display text-[clamp(1.55rem,3.1vw,2.15rem)] font-medium leading-[1.22] tracking-[-0.025em] text-text">
+            Most of what I build is{" "}
+            <span className="text-muted">the unglamorous part.</span>
           </p>
           <p className="mt-5 max-w-[62ch] text-[16px] leading-[1.7] text-dim">
-            Everything I have shipped had to survive a hospital&apos;s midnight
-            pharmacy run, a shop that loses signal every afternoon, and a tax
-            authority&apos;s audit. Those constraints are not a detour from the
-            interesting work — they are the interesting work.
+            The part that keeps working at 2am, offline, with real money on the
+            line. It is not the exciting part of AI — but it is the part that
+            decides whether any of it matters.
           </p>
         </Reveal>
 

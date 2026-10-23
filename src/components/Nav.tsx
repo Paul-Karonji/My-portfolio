@@ -5,10 +5,8 @@ import { profile } from "@/data/profile";
 
 const LINKS = [
   { href: "#work", label: "Work" },
-  { href: "#lab", label: "Lab" },
-  { href: "#systems", label: "Systems" },
   { href: "#stack", label: "Stack" },
-  { href: "#archive", label: "Archive" },
+  { href: "#contact", label: "Contact" },
 ];
 
 export default function Nav() {

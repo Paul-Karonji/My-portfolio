@@ -6,17 +6,17 @@ export const principles: {
   {
     index: "A",
     title: "Offline is the default, not the fallback.",
-    body: "A Kenyan shop loses signal every afternoon. A POS that needs the cloud to print a receipt stops selling. So the WIK-POS desktop suite writes to local SQLite and syncs when it can, the drivers' transit portal keeps logging checkpoints with no signal at all, and Unsent still unlocks with the same password when the internet is gone.",
+    body: "A Kenyan shop loses signal every afternoon. A POS that needs the cloud to print a receipt stops selling. So WIK-POS writes to local SQLite and syncs when it can, drivers keep logging checkpoints with no signal at all, and Unsent still unlocks with the same password when the internet is gone.",
   },
   {
     index: "B",
     title: "An agent needs tools, not toys.",
-    body: "A model that can only talk is a demo. DueSync ships a native MCP server with 13 tools so an agent can actually schedule work; Hiro exposes real tool plugins, a skills system and scheduled jobs. The interesting work is the boring part — schemas, permissions, audit trails.",
+    body: "A model that can only talk is a demo. So DueSync ships a real MCP server with 13 tools, and Hiro has actual tool plugins, a skills library and scheduled jobs. The fun part turns out to be the boring part — schemas, permissions, audit trails.",
   },
   {
     index: "C",
     title: "The database should refuse, not warn.",
-    body: "VoteWatch blocks UPDATE and DELETE on vote counts with a PostgreSQL trigger, because application-level validation loses to a compromised admin key. Hiro's operator routes sit behind tokens. If the data matters, the constraint belongs where the data lives.",
+    body: "VoteWatch blocks UPDATE and DELETE on vote counts with a PostgreSQL trigger, because application-level validation loses to a compromised admin key. If the data matters, the constraint belongs where the data lives.",
   },
 ];
 

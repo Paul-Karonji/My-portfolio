@@ -10,7 +10,7 @@ export default function Contact() {
             <div className="grid gap-10 p-8 sm:p-12 lg:grid-cols-[1.15fr_0.85fr] lg:gap-16 lg:p-14">
               <div>
                 <div className="flex items-center gap-3">
-                  <span className="mono-tag text-lav">06</span>
+                  <span className="mono-tag text-lav">04</span>
                   <span className="h-px w-6 bg-hairline" />
                   <span className="eyebrow">Contact</span>
                 </div>
@@ -21,9 +21,10 @@ export default function Contact() {
                 </h2>
 
                 <p className="mt-6 max-w-[52ch] text-[16px] leading-[1.7] text-dim">
-                  I am open to senior and lead engineering roles, and to
-                  architecture work on systems where being offline-tolerant,
-                  auditable or compliant is not optional. I read every message.
+                  I&apos;m looking for internship, junior or remote roles. If
+                  you&apos;re building something where offline behaviour, audit
+                  trails or compliance actually matter, I&apos;d like to hear
+                  about it. I read every message.
                 </p>
 
                 <a
