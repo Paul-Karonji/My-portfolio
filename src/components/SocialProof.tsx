@@ -78,20 +78,24 @@ export default function SocialProof() {
               </p>
             </div>
 
-            <div className="space-y-2 pt-2">
-              <div className="flex items-center gap-2 text-[13px] text-primaryText">
-                <ShieldCheck className="w-4 h-4 text-accentGreen" />
-                <span>IBM SkillsBuild Cybersecurity Certified</span>
-              </div>
-              <div className="flex items-center gap-2 text-[13px] text-primaryText">
-                <ShieldCheck className="w-4 h-4 text-accentGreen" />
-                <span>Technical Lead · JHUB Africa (JKUAT Hub)</span>
-              </div>
-              <div className="flex items-center gap-2 text-[13px] text-primaryText">
-                <ShieldCheck className="w-4 h-4 text-accentGreen" />
-                <span>KRA eTIMS Fiscalization · OSCU/VSCU</span>
-              </div>
+          <div className="space-y-2 pt-2">
+            <div className="flex items-center gap-2 text-[13px] text-primaryText">
+              <ShieldCheck className="w-4 h-4 text-accentGreen" />
+              <span>AI Fluency Certified — Anthropic (incl. Claude 101)</span>
             </div>
+            <div className="flex items-center gap-2 text-[13px] text-primaryText">
+              <ShieldCheck className="w-4 h-4 text-accentGreen" />
+              <span>IBM SkillsBuild Cybersecurity Certified</span>
+            </div>
+            <div className="flex items-center gap-2 text-[13px] text-primaryText">
+              <ShieldCheck className="w-4 h-4 text-accentGreen" />
+              <span>KRA eTIMS Fiscalization · OSCU/VSCU</span>
+            </div>
+            <div className="flex items-center gap-2 text-[13px] text-primaryText">
+              <ShieldCheck className="w-4 h-4 text-accentGreen" />
+              <span>Technical Lead · JHUB Africa (JKUAT Hub)</span>
+            </div>
+          </div>
           </div>
 
           <div className="pt-6 border-t border-borderHairline/60 mt-6">
@@ -101,39 +105,59 @@ export default function SocialProof() {
           </div>
         </motion.div>
 
-        {/* Card 2: Enterprise Endorsement Testimonial */}
+        {/* Card 2: Real Client Reviews (from wiktechnologies.co.ke) */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-60px" }}
           transition={{ duration: 0.6, delay: 0.2, ease: [0.21, 0.47, 0.32, 0.98] }}
           whileHover={{ y: -4, transition: { duration: 0.25 } }}
-          className="rounded-bento p-8 sm:p-10 bg-darkCard text-surface shadow-luzia-subtle flex flex-col justify-between relative overflow-hidden"
+          className="rounded-bento p-8 sm:p-10 bg-accentVioletLight border border-accentViolet/15 shadow-luzia-subtle flex flex-col justify-between relative overflow-hidden"
         >
           <div className="absolute top-0 right-0 p-8 opacity-10 pointer-events-none">
             <Quote className="w-32 h-32" />
           </div>
 
           <div className="space-y-4 relative z-10">
-            <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-accentGreen">
+            <div className="w-10 h-10 rounded-full bg-surface flex items-center justify-center text-accentViolet">
               <Quote className="w-5 h-5" />
             </div>
 
-            <p className="text-[16px] sm:text-[17px] text-surface/90 leading-relaxed font-normal">
-              &ldquo;Paul's systems engineering goes far beyond code—he architects robust, self-healing platforms that scale reliably under real-world African infrastructure constraints.&rdquo;
-            </p>
+            <div>
+              <p className="text-[14px] sm:text-[15px] text-primaryText/90 leading-relaxed">
+                &ldquo;The system is reliable, user-friendly, and has transformed how we manage daily operations. The FEFO pharmacy module in particular has made medicine dispensing and prescription tracking seamless.&rdquo;
+              </p>
+              <div className="mt-3 flex items-center gap-2.5">
+                <div className="w-8 h-8 rounded-full bg-accentViolet flex items-center justify-center text-white font-semibold text-[12px] flex-shrink-0">
+                  S
+                </div>
+                <div>
+                  <div className="text-[13px] font-medium text-primaryText leading-tight">
+                    Samy
+                  </div>
+                  <div className="text-[11px] text-mutedText leading-tight">
+                    Lead Admin · Chidstal Healthcare (WIK HMS)
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
 
-          <div className="pt-6 border-t border-white/10 flex items-center gap-3 relative z-10 mt-6">
-            <div className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center text-surface font-semibold text-[14px]">
-              BM
-            </div>
-            <div>
-              <div className="text-[14px] font-medium text-surface">
-                Brixton Makunga Hospital
+          <div className="pt-4 border-t border-accentViolet/15 relative z-10 mt-4">
+            <p className="text-[14px] sm:text-[15px] text-primaryText/90 leading-relaxed">
+              &ldquo;Working with WIK Technologies to build our custom platform was a great experience. They delivered a fast, clean, professional software architecture that genuinely grew our business.&rdquo;
+            </p>
+            <div className="mt-3 flex items-center gap-2.5">
+              <div className="w-8 h-8 rounded-full bg-accentGreen flex items-center justify-center text-white font-semibold text-[12px] flex-shrink-0">
+                J
               </div>
-              <div className="text-[12px] text-surface/60">
-                Clinical Operations & Systems
+              <div>
+                <div className="text-[13px] font-medium text-primaryText leading-tight">
+                  Jim
+                </div>
+                <div className="text-[11px] text-mutedText leading-tight">
+                  Operations Manager · Custom Platform Client
+                </div>
               </div>
             </div>
           </div>

@@ -36,9 +36,9 @@ export default function FAQs() {
           <div className="pt-2">
             <a
               href={`mailto:${profile.email}?subject=Architecture%20Question`}
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-btn bg-darkCard text-surface text-[14px] font-medium shadow-luzia-btn hover:scale-[1.02] active:scale-[0.98] transition-all"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-btn bg-accentViolet text-white text-[14px] font-medium shadow-luzia-btn hover:scale-[1.02] active:scale-[0.98] transition-all"
             >
-              <Mail className="w-4 h-4 text-accentGreen" />
+              <Mail className="w-4 h-4 text-white" />
               <span>Email Me Directly</span>
             </a>
           </div>
@@ -52,7 +52,7 @@ export default function FAQs() {
           transition={{ duration: 0.6, delay: 0.15, ease: [0.21, 0.47, 0.32, 0.98] }}
           className="lg:col-span-7 space-y-3"
         >
-          <div className="inline-block mb-3 px-3.5 py-1.5 rounded-full bg-darkCard text-surface text-[12px] font-medium shadow-sm">
+          <div className="inline-block mb-3 px-3.5 py-1.5 rounded-full bg-accentViolet text-white text-[12px] font-medium shadow-sm">
             I’m here to help you
           </div>
 
@@ -74,7 +74,7 @@ export default function FAQs() {
                   <div
                     className={`w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 transition-all duration-200 ${
                       isOpen
-                        ? "bg-darkCard text-surface rotate-180"
+                        ? "bg-accentViolet text-white rotate-180"
                         : "bg-canvas text-mutedText rotate-0"
                     }`}
                   >

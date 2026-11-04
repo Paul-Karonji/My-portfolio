@@ -63,7 +63,7 @@ export default function HowItWorks() {
     <section
       ref={sectionRef}
       id="process"
-      className="w-full py-28 px-6 sm:px-10 bg-darkCard text-surface bg-noise relative"
+      className="w-full py-28 px-6 sm:px-10 bg-surface text-primaryText bg-noise relative"
     >
       {/* Scroll-driven vertical progress bar on the left edge */}
       <motion.div
@@ -101,21 +101,21 @@ export default function HowItWorks() {
               key={step.num}
               variants={cardVariants}
               whileHover={{ y: -5, transition: { duration: 0.25, ease: "easeOut" } }}
-              className="p-8 rounded-card bg-[#181818] border border-white/10 flex flex-col justify-between hover:border-accentGreen/50 transition-colors duration-300"
+              className="p-8 rounded-card bg-canvas border border-borderHairline/80 shadow-luzia-subtle flex flex-col justify-between hover:border-accentGreen/50 transition-colors duration-300"
             >
               <div className="space-y-4">
-                <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-accentGreen font-bold text-[16px]">
+                <div className="w-10 h-10 rounded-full bg-accentVioletLight flex items-center justify-center text-accentViolet font-bold text-[16px]">
                   {step.num}
                 </div>
-                <h3 className="text-[20px] font-medium text-surface">
+                <h3 className="text-[20px] font-medium text-primaryText">
                   {step.title}
                 </h3>
-                <p className="text-[14px] text-surface/75 leading-relaxed">
+                <p className="text-[14px] text-mutedText leading-relaxed">
                   {step.desc}
                 </p>
               </div>
 
-              <div className="pt-6 mt-6 border-t border-white/5">
+              <div className="pt-6 mt-6 border-t border-borderHairline/60">
                 <span className="text-[11px] font-semibold text-accentGreen uppercase tracking-wider">
                   Phase 0{step.num}
                 </span>

@@ -59,7 +59,7 @@ export default function Services() {
               whileHover={{ y: -6, transition: { duration: 0.25, ease: "easeOut" } }}
               className={`rounded-card sm:rounded-bento p-8 sm:p-9 flex flex-col justify-between transition-shadow duration-300 ${
                 isFeatured
-                  ? "bg-darkCard text-surface shadow-xl ring-1 ring-white/10"
+                  ? "bg-accentVioletLight shadow-xl ring-1 ring-accentViolet/20"
                   : "bg-surface text-primaryText border border-borderHairline/80 shadow-luzia-subtle hover:shadow-luzia-card"
               }`}
             >
@@ -69,7 +69,7 @@ export default function Services() {
                   <span
                     className={`text-[12px] font-semibold px-3 py-1 rounded-full uppercase tracking-wider ${
                       isFeatured
-                        ? "bg-white/10 text-surface/80"
+                        ? "bg-accentViolet text-white"
                         : "bg-canvas text-mutedText border border-borderHairline"
                     }`}
                   >
@@ -85,7 +85,7 @@ export default function Services() {
                 {/* Description */}
                 <p
                   className={`text-[14px] sm:text-[15px] leading-relaxed ${
-                    isFeatured ? "text-surface/85" : "text-mutedText"
+                    isFeatured ? "text-primaryText/85" : "text-mutedText"
                   }`}
                 >
                   {s.description}
@@ -95,7 +95,7 @@ export default function Services() {
                 <div className="space-y-3 pt-2">
                   <span
                     className={`text-[12px] font-semibold uppercase tracking-wider block ${
-                      isFeatured ? "text-surface/60" : "text-primaryText"
+                      isFeatured ? "text-accentViolet" : "text-primaryText"
                     }`}
                   >
                     Key Deliverables:
@@ -106,7 +106,7 @@ export default function Services() {
                         <Check className="w-4 h-4 mt-0.5 flex-shrink-0 text-accentGreen" />
                         <span
                           className={`text-[13px] leading-snug ${
-                            isFeatured ? "text-surface/90" : "text-primaryText/90"
+                            isFeatured ? "text-primaryText/90" : "text-primaryText/90"
                           }`}
                         >
                           {item}
@@ -120,7 +120,7 @@ export default function Services() {
               {/* Footer Tags & CTA */}
               <div
                 className={`pt-6 mt-8 border-t ${
-                  isFeatured ? "border-white/15" : "border-borderHairline/60"
+                  isFeatured ? "border-accentViolet/15" : "border-borderHairline/60"
                 }`}
               >
                 <div className="flex flex-wrap gap-1.5 mb-6">
@@ -129,7 +129,7 @@ export default function Services() {
                       key={t}
                       className={`text-[11px] font-medium px-2.5 py-1 rounded-md ${
                         isFeatured
-                          ? "bg-white/10 text-surface/80"
+                          ? "bg-surface text-mutedText"
                           : "bg-canvas text-mutedText"
                       }`}
                     >
@@ -142,7 +142,7 @@ export default function Services() {
                   href="#contact"
                   className={`inline-flex items-center gap-2 text-[14px] font-medium transition-colors ${
                     isFeatured
-                      ? "text-surface hover:text-surface/75"
+                      ? "text-accentViolet hover:text-accentViolet/75"
                       : "text-primaryText hover:text-darkCard"
                   }`}
                 >

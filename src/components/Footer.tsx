@@ -16,7 +16,7 @@ export default function Footer() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-60px" }}
           transition={{ duration: 0.7, ease: [0.21, 0.47, 0.32, 0.98] }}
-          className="rounded-bento p-10 sm:p-16 lg:p-20 bg-darkCard text-surface bg-noise text-center relative overflow-hidden flex flex-col items-center justify-center space-y-8"
+          className="rounded-bento p-10 sm:p-16 lg:p-20 bg-accentVioletLight bg-noise text-center relative overflow-hidden flex flex-col items-center justify-center space-y-8"
         >
           {/* Pulsing ambient glow */}
           <motion.div
@@ -29,11 +29,11 @@ export default function Footer() {
               repeat: Infinity,
               ease: "easeInOut",
             }}
-            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[350px] sm:w-[500px] h-[350px] sm:h-[500px] bg-white rounded-full blur-3xl pointer-events-none"
+            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[350px] sm:w-[500px] h-[350px] sm:h-[500px] bg-accentViolet rounded-full blur-3xl pointer-events-none"
           />
 
           {/* Minimal Status Tag */}
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 text-[12px] font-medium text-surface/90 border border-white/10 relative z-10">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-surface/80 text-[12px] font-medium text-accentViolet border border-accentViolet/20 relative z-10">
             <span className="w-2 h-2 rounded-full bg-accentGreen" />
             <span>Open for Enterprise Collaboration</span>
           </div>
@@ -43,7 +43,7 @@ export default function Footer() {
             <h2 className="text-[34px] sm:text-[46px] lg:text-[54px] font-medium leading-[1.1] tracking-[-0.03em]">
               Ready to architect and scale your next system?
             </h2>
-            <p className="text-[15px] sm:text-[18px] text-surface/75">
+            <p className="text-[15px] sm:text-[18px] text-primaryText/75">
               Book a call or email me with your requirements, and I’ll take care of the rest.
             </p>
           </div>
@@ -52,16 +52,16 @@ export default function Footer() {
           <div className="flex flex-wrap items-center justify-center gap-4 relative z-10 pt-2">
             <a
               href={`mailto:${profile.email}?subject=Architecture%20Call%20Request%20-%20Paul%20Karonji`}
-              className="inline-flex items-center gap-2 px-8 py-4 rounded-btn bg-surface text-darkCard text-[15px] font-medium hover:bg-canvas transition-all shadow-luzia-btn hover:scale-[1.03] active:scale-[0.98]"
+              className="inline-flex items-center gap-2 px-8 py-4 rounded-btn bg-accentViolet text-white text-[15px] font-medium hover:bg-accentViolet/90 transition-all shadow-luzia-btn hover:scale-[1.03] active:scale-[0.98]"
             >
-              <Mail className="w-4 h-4 text-accentViolet" />
+              <Mail className="w-4 h-4 text-white" />
               <span>Schedule Architecture Call</span>
             </a>
 
             <a
               href={profile.resumeUrl}
               download="Paul-Karonji-Waithaka-Resume.pdf"
-              className="inline-flex items-center gap-2 px-7 py-4 rounded-btn bg-white/10 hover:bg-white/15 text-surface text-[15px] font-medium border border-white/20 transition-all hover:scale-[1.02] active:scale-[0.98]"
+              className="inline-flex items-center gap-2 px-7 py-4 rounded-btn bg-surface/80 hover:bg-surface text-primaryText text-[15px] font-medium border border-accentViolet/25 transition-all hover:scale-[1.02] active:scale-[0.98]"
             >
               <Download className="w-4 h-4 text-accentGreen" />
               <span>Download Full Resume</span>
@@ -156,7 +156,7 @@ export default function Footer() {
               </li>
               <li>
                 <a
-                  href="https://wiktechnologies.com"
+                  href="https://wiktechnologies.co.ke"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-1.5 text-mutedText hover:text-primaryText transition-colors"

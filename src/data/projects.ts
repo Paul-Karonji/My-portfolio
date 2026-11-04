@@ -16,6 +16,27 @@ export interface Project {
 
 export const projects: Project[] = [
   {
+    id: "wik-pos-cloud",
+    title: "WIK POS Cloud — Multi-Tenant SaaS POS Platform",
+    category: "SaaS · Payments & Fiscal Compliance",
+    tags: ["NestJS 11", "Multi-Till M-Pesa", "KRA eTIMS Worker", "Paystack Billing"],
+    summary:
+      "Live multi-tenant cloud POS (pos.wiktechnologies.com) on NestJS 11 + React 19: multi-till M-Pesa Daraja STK Push with C2B deposit claiming, KRA eTIMS fiscalization, Paystack subscription billing, and FEFO pharmacy controls.",
+    description:
+      "The cloud edition of the WIK POS family, live at pos.wiktechnologies.com: a NestJS 11 + Prisma/PostgreSQL backend and React 19 + Vite frontend with Socket.IO real-time sync. A multi-till M-Pesa Daraja engine routes STK Push across Buy Goods tills and shared enterprise Paybills with an unassigned C2B deposit queue for 1-click cashier claiming; a KRA eTIMS worker fiscalizes every receipt (AES-256-encrypted credentials, submission audit ledger, exponential-backoff retry); Paystack runs recurring SaaS billing with a 10-day no-card trial and self-service reactivation wall. FEFO pharmacy mode ships batch-expiry picking and a hash-chained controlled-drug register; 9 executive reports are Redis-cached from 3–7s cold to ~0.3s warm. Shipped with 600+ automated tests (Jest + Vitest) and zero-downtime Docker deploys to an Azure VM.",
+    stack: ["NestJS 11", "React 19 + Vite", "PostgreSQL (Supabase)", "Redis 7", "Socket.IO", "M-Pesa Daraja", "Paystack", "KRA eTIMS", "Docker + GitHub Actions", "Azure VM"],
+    highlights: [
+      "Multi-till M-Pesa Daraja engine: STK Push across Buy Goods tills & shared Paybills with a 1-click unassigned C2B deposit queue",
+      "KRA eTIMS fiscalization worker (OSCU/VSCU) with AES-256-encrypted credentials, submission audit ledger, and backoff retries",
+      "Paystack SaaS billing: 10-day no-card trial, self-service reactivation wall, additive billing-date stacking",
+      "Hash-chained controlled-drug register + FEFO batch-expiry picking for pharmacy mode",
+      "Redis-cached executive reports (3–7s cold → ~0.3s warm) and 600+ automated tests with zero-downtime Docker deploys",
+    ],
+    image: "/images/projects/wik-pos-cloud.webp",
+    featured: true,
+    link: "https://pos.wiktechnologies.com/",
+  },
+  {
     id: "wik-pos",
     title: "WIK-POS — Offline-First Desktop POS Suite",
     category: "Offline-First · Fintech & Fiscal Compliance",
@@ -33,7 +54,6 @@ export const projects: Project[] = [
     ],
     image: "/images/projects/wik-pos-desktop.webp",
     featured: true,
-    link: "https://pos.wiktechnologies.com/",
     downloadUrl: "https://wiktechnologies.com/downloads",
   },
   {
@@ -55,26 +75,6 @@ export const projects: Project[] = [
     image: "/images/projects/brixton-makunga.webp",
     featured: true,
     link: "https://hmisdemo.wiktechnologies.com/",
-  },
-  {
-    id: "fleettrack",
-    title: "FleetTrack — Fleet Telematics & Dispatch Platform",
-    category: "Real-Time Systems · High-Concurrency IoT",
-    tags: ["Go", "WebSockets", "React Native", "Offline-First"],
-    summary:
-      "Multi-tenant fleet-telematics and dispatch platform built end-to-end: high-concurrency Go backend, React 19 web console, and Expo driver app with offline-first telemetry sync.",
-    description:
-      "Founding-engineer build of Atlas Data's FleetTrack: a high-concurrency Go backend (Chi, pgxpool, Gorilla WebSocket), React 19 dispatcher web console, and Expo/React Native driver app. Driver devices buffer GPS/battery samples in SQLite and sync in batches on reconnect; a PostgreSQL hot-state cache feeds real-time WebSocket fan-out to dispatchers' live maps. Deployed in active testing.",
-    stack: ["Go (Chi, pgxpool)", "Gorilla WebSocket", "React 19", "Expo / React Native", "PostgreSQL", "SQLite"],
-    highlights: [
-      "Offline-first telemetry pipeline: SQLite device buffering with batched reconnect sync",
-      "Real-time WebSocket fan-out to dispatchers' live maps via a PostgreSQL hot-state cache",
-      "30-minute stoppage detection auto-raising critical incidents and live-map alerts",
-      "QR/passcode dispatch claiming, pre/post-trip inspections that lock vehicles on critical failures, 4-role RBAC",
-    ],
-    image: "/images/projects/fleettrack.webp",
-    featured: true,
-    link: "https://fleetops-mauve.vercel.app",
   },
   {
     id: "ktrack",
@@ -116,26 +116,6 @@ export const projects: Project[] = [
     featured: true,
     link: "https://duesync.vercel.app",
     github: "https://github.com/Paul-Karonji/DueSync",
-  },
-  {
-    id: "hiro",
-    title: "Hiro — Self-Hosted Multi-Model AI Agent",
-    category: "Autonomous AI · Multi-Agent",
-    tags: ["AI SDK", "Multi-Model Mesh", "Telegram & WhatsApp", "Pinecone"],
-    summary:
-      "Self-hosted multi-model agent mesh routing across Anthropic, OpenAI, Groq, Mistral, and OpenRouter with parallel task execution and a dynamic self-improving skills system.",
-    description:
-      "Open-source, self-hosted AI agent: a multi-model mesh routing across Anthropic/OpenAI/Groq/Mistral/OpenRouter with parallel task execution and a dynamic self-improving skills system. Document ingestion (PDF/DOCX), web search, memory-backed conversations, voice I/O, and a rich-output browser canvas — across dual Telegram/WhatsApp interfaces.",
-    stack: ["Node.js / TypeScript", "AI SDK", "PostgreSQL / SQLite", "Pinecone", "WhatsApp Cloud API", "Telegram API"],
-    highlights: [
-      "Multi-model routing across Anthropic/OpenAI/Groq/Mistral/OpenRouter with parallel execution",
-      "Dynamic self-improving skills system (live SKILL.md runtime)",
-      "Document ingestion (PDF/DOCX), web search, and memory-backed conversations",
-      "Voice I/O and rich-output browser canvas over dual Telegram/WhatsApp interfaces",
-    ],
-    image: "/images/projects/hiro.jpg",
-    featured: true,
-    github: "https://github.com/Paul-Karonji/Hiro",
   },
   {
     id: "mtaakeys",
@@ -348,6 +328,25 @@ export const projects: Project[] = [
     downloadUrl: "https://wiktechnologies.com/downloads",
   },
   {
+    id: "hermes-ops",
+    title: "Hermes Ops — Self-Hosted Multi-Agent AI Operations Platform",
+    category: "AI Infrastructure · Agent Orchestration",
+    tags: ["Hermes Agent", "9 Agent Profiles", "Multi-Provider LLM Routing", "Cron Pipelines"],
+    summary:
+      "Self-hosted multi-agent AI operations platform running WIK Technologies' business ops: 9 specialist agent profiles orchestrated across Telegram, WhatsApp, and a web dashboard, with automated cron pipelines and multi-provider LLM routing.",
+    description:
+      "Architected and operate a production-grade multi-agent AI operations platform on a self-hosted Oracle Cloud VPS: 9 specialist agent profiles (coding, research, sales, marketing, knowledge) routed through a chief-of-staff orchestrator across Telegram, WhatsApp, and a web dashboard. Three automated cron pipelines (email signal monitoring, merchant lead generation) have executed 1,600+ times, with persistent SQLite WAL state stores, per-profile skill libraries, and supervised gateway watchdogs for uptime.",
+    stack: ["Hermes Agent", "Oracle Cloud VPS", "Multi-Provider LLM Routing", "SQLite WAL", "Telegram & WhatsApp APIs", "Nginx"],
+    highlights: [
+      "9 specialist agent profiles routed through an orchestrator across Telegram, WhatsApp, and a web dashboard",
+      "3 automated cron pipelines (email signal monitoring, merchant lead generation) with 1,600+ executions",
+      "Multi-provider LLM routing across 5 providers with hot-swappable failover and model aliases",
+      "Hardened ops: supervised gateway watchdogs, secrets isolation, Nginx pre-flight validation, SQLite WAL state stores",
+    ],
+    image: "/images/projects/hermes-ops.webp",
+    featured: false,
+  },
+  {
     id: "padi",
     title: "Padi — Zero-Knowledge Password Vault",
     category: "Cryptography & Security",
@@ -363,6 +362,7 @@ export const projects: Project[] = [
       "Authenticated AES-GCM-256 encryption for credential payloads",
       "Cross-browser Manifest V3 compatibility and background worker sync",
     ],
+    image: "/images/projects/padi.webp",
     featured: false,
   },
 ];

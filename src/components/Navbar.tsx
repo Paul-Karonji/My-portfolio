@@ -74,9 +74,9 @@ export default function Navbar() {
           <a
             href={profile.resumeUrl}
             download="Paul-Karonji-Waithaka-Resume.pdf"
-            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-btn bg-darkCard text-surface text-[13px] sm:text-[14px] font-medium shadow-luzia-btn hover:scale-[1.02] active:scale-[0.98] transition-all duration-200"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-btn bg-accentViolet text-white text-[13px] sm:text-[14px] font-medium shadow-luzia-btn hover:scale-[1.02] active:scale-[0.98] transition-all duration-200"
           >
-            <Download className="w-4 h-4 text-accentGreen" />
+            <Download className="w-4 h-4 text-white" />
             <span>Download CV</span>
           </a>
         </div>
@@ -143,9 +143,9 @@ export default function Navbar() {
               <a
                 href={profile.resumeUrl}
                 download="Paul-Karonji-Waithaka-Resume.pdf"
-                className="w-full flex items-center justify-center gap-2 px-5 py-3 rounded-btn bg-darkCard text-surface text-[14px] font-medium shadow-luzia-btn"
+                className="w-full flex items-center justify-center gap-2 px-5 py-3 rounded-btn bg-accentViolet text-white text-[14px] font-medium shadow-luzia-btn"
               >
-                <Download className="w-4 h-4 text-accentGreen" />
+                <Download className="w-4 h-4 text-white" />
                 <span>Download Full Resume (PDF)</span>
               </a>
             </div>

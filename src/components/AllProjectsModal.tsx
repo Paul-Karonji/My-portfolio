@@ -83,12 +83,12 @@ export default function AllProjectsModal({
                   onClick={() => setActiveProject(p)}
                   className={`w-full text-left p-3 rounded-btn transition-all flex items-center gap-3.5 ${
                     isSelected
-                      ? "bg-darkCard text-surface shadow-sm ring-1 ring-white/10"
+                      ? "bg-accentVioletLight text-primaryText shadow-sm ring-1 ring-accentViolet/25"
                       : "hover:bg-surface text-primaryText"
                   }`}
                 >
                   {/* Thumbnail */}
-                  <div className="relative w-12 h-12 rounded-md overflow-hidden bg-darkCard/40 flex-shrink-0 border border-borderHairline/60">
+                  <div className="relative w-12 h-12 rounded-md overflow-hidden bg-canvas flex-shrink-0 border border-borderHairline/60">
                     {p.image ? (
                       <Image
                         src={p.image}
@@ -123,7 +123,7 @@ export default function AllProjectsModal({
                     </div>
                     <span
                       className={`text-[11px] block truncate mt-0.5 ${
-                        isSelected ? "text-surface/70" : "text-mutedText"
+                        isSelected ? "text-accentViolet" : "text-mutedText"
                       }`}
                     >
                       {p.category}
@@ -158,7 +158,7 @@ export default function AllProjectsModal({
 
             {/* Visual Preview */}
             {activeProject.image ? (
-              <div className="relative w-full h-[220px] sm:h-[280px] rounded-card overflow-hidden bg-darkCard border border-borderHairline/60">
+              <div className="relative w-full h-[220px] sm:h-[280px] rounded-card overflow-hidden bg-canvas border border-borderHairline/60">
                 <Image
                   src={activeProject.image}
                   alt={activeProject.title}
@@ -167,40 +167,40 @@ export default function AllProjectsModal({
                 />
               </div>
             ) : (
-              <div className="relative w-full h-[220px] sm:h-[280px] rounded-card overflow-hidden bg-[#141416] border border-white/10 p-6 flex flex-col justify-between">
+              <div className="relative w-full h-[220px] sm:h-[280px] rounded-card overflow-hidden bg-accentVioletLight border border-accentViolet/15 p-6 flex flex-col justify-between">
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-2">
                     <span className="w-2.5 h-2.5 rounded-full bg-accentGreen animate-pulse" />
-                    <span className="text-[12px] font-mono text-white/70 uppercase tracking-wider">
+                    <span className="text-[12px] font-mono text-accentViolet uppercase tracking-wider">
                       Architecture &amp; System Spec
                     </span>
                   </div>
-                  <span className="text-[11px] font-mono text-white/40 px-2.5 py-1 rounded bg-white/5 border border-white/10">
+                  <span className="text-[11px] font-mono text-accentViolet/70 px-2.5 py-1 rounded bg-surface/70 border border-accentViolet/15">
                     Production Core
                   </span>
                 </div>
 
                 <div className="space-y-2 text-left">
                   <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-accentGreen">
+                    <div className="w-10 h-10 rounded-lg bg-surface border border-accentViolet/15 flex items-center justify-center text-accentViolet">
                       <Terminal className="w-5 h-5" />
                     </div>
                     <div>
-                      <div className="text-[15px] font-medium text-white">
+                      <div className="text-[15px] font-medium text-primaryText">
                         {activeProject.title}
                       </div>
-                      <div className="text-[12px] text-white/60 font-mono">
+                      <div className="text-[12px] text-mutedText font-mono">
                         {activeProject.tags.join(" • ")}
                       </div>
                     </div>
                   </div>
                 </div>
 
-                <div className="flex items-center justify-between text-[12px] text-white/40 border-t border-white/10 pt-3">
+                <div className="flex items-center justify-between text-[12px] text-mutedText border-t border-accentViolet/15 pt-3">
                   <span className="flex items-center gap-1.5 font-mono">
                     <Shield className="w-3.5 h-3.5 text-accentViolet" /> Enterprise / Internal Engine
                   </span>
-                  <span className="font-mono text-white/60">
+                  <span className="font-mono text-mutedText">
                     Proprietary Deployment
                   </span>
                 </div>
@@ -246,7 +246,7 @@ export default function AllProjectsModal({
                 {activeProject.stack.map((s) => (
                   <span
                     key={s}
-                    className="text-[12px] font-medium px-3 py-1 rounded-md bg-darkCard text-surface"
+                    className="text-[12px] font-medium px-3 py-1 rounded-md bg-canvas text-mutedText border border-borderHairline/60"
                   >
                     {s}
                   </span>
@@ -277,7 +277,7 @@ export default function AllProjectsModal({
                   href={activeProject.downloadUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-btn bg-blue-600 text-white font-semibold text-[14px] hover:bg-blue-500 hover:scale-[1.02] active:scale-[0.98] transition-all shadow-sm"
+                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-btn bg-accentViolet text-white font-semibold text-[14px] hover:bg-accentViolet/90 hover:scale-[1.02] active:scale-[0.98] transition-all shadow-sm"
                 >
                   <Download className="w-4 h-4" />
                   <span>Download Installers (wiktechnologies.com)</span>
@@ -289,7 +289,7 @@ export default function AllProjectsModal({
                   href={activeProject.github}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-btn bg-darkCard text-surface text-[14px] font-medium hover:opacity-90 hover:scale-[1.02] active:scale-[0.98] transition-all"
+                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-btn bg-primaryText text-white text-[14px] font-medium hover:opacity-90 hover:scale-[1.02] active:scale-[0.98] transition-all"
                 >
                   <Github className="w-4 h-4" />
                   <span>View Repository on GitHub</span>

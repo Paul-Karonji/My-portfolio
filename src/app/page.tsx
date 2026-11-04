@@ -25,7 +25,7 @@ export default function Home() {
       {/* 5. Core Architectural Services (Featured Electric Violet Card) */}
       <Services />
 
-      {/* 6. Dark #111111 5-Step Engineering Lifecycle */}
+      {/* 6. 5-Step Engineering Lifecycle */}
       <HowItWorks />
 
       {/* 7. Interactive Accordion FAQs */}

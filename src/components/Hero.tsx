@@ -91,7 +91,7 @@ export default function Hero() {
               {[
                 "I", "ship", "production", "systems",
                 "with", "live", "users", "—",
-                "payments,", "health,", "fleet,", "AI",
+                "payments,", "health,", "SaaS,", "AI",
               ].map((word, i) => (
                 <span key={i} className="inline-block overflow-hidden mr-[0.28em] last:mr-0">
                   <motion.span
@@ -131,9 +131,9 @@ export default function Hero() {
             >
               <a
                 href={`mailto:${profile.email}?subject=Architecture%20Inquiry%20-%20Paul%20Karonji`}
-                className="inline-flex items-center gap-2 px-6 py-3.5 rounded-btn bg-darkCard text-surface text-[14px] font-medium shadow-luzia-btn hover:scale-[1.03] active:scale-[0.98] transition-all duration-200"
+                className="inline-flex items-center gap-2 px-6 py-3.5 rounded-btn bg-accentViolet text-white text-[14px] font-medium shadow-luzia-btn hover:scale-[1.03] active:scale-[0.98] transition-all duration-200"
               >
-                <Mail className="w-4 h-4 text-accentGreen" />
+                <Mail className="w-4 h-4 text-white" />
                 <span>Email Me</span>
               </a>
               <a
@@ -161,7 +161,7 @@ export default function Hero() {
                 <span>KRA eTIMS &amp; M-Pesa Rails</span>
               </span>
               <span className="flex items-center gap-1.5">
-                <span className="w-1.5 h-1.5 rounded-full bg-darkCard" />
+                <span className="w-1.5 h-1.5 rounded-full bg-accentViolet" />
                 <span>MCP AI Agent Tooling</span>
               </span>
             </motion.div>
@@ -250,7 +250,7 @@ export default function Hero() {
                     ease: "easeInOut",
                     delay: 1,
                   }}
-                  className="absolute bottom-12 sm:bottom-16 -left-2 sm:-left-6 px-3.5 py-1.5 rounded-full bg-darkCard/90 backdrop-blur-md border border-white/10 text-surface shadow-luzia-card hidden sm:flex items-center gap-2"
+                  className="absolute bottom-12 sm:bottom-16 -left-2 sm:-left-6 px-3.5 py-1.5 rounded-full bg-surface/90 backdrop-blur-md border border-borderHairline text-primaryText shadow-luzia-card hidden sm:flex items-center gap-2"
                 >
                   <Terminal className="w-3.5 h-3.5 text-accentGreen" />
                   <span className="text-[11px] font-mono">

@@ -52,9 +52,9 @@ html.lenis, html.lenis body {
   pointer-events: none;
 }
 
-/* Subtle background grain for dark sections */
+/* Subtle background grain for tinted sections */
 .bg-noise {
-  background-image: radial-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 0);
+  background-image: radial-gradient(rgba(17, 17, 17, 0.035) 1px, transparent 0);
   background-size: 24px 24px;
 }
 

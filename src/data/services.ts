@@ -43,7 +43,7 @@ export const services: ServicePillar[] = [
     badge: "Go · WebSockets · MCP",
     featured: false,
     description: "High-concurrency backends and AI infrastructure: Go services with WebSocket fan-out, multi-tenant REST APIs, and native Model Context Protocol servers that let AI agents create, complete, and auto-schedule real work.",
-    tags: ["Go (Chi, pgxpool)", "WebSockets/Socket.IO", "MCP Servers", "AI SDK", "PostgreSQL"],
+    tags: ["Go (Chi, pgxpool)", "WebSockets/Socket.IO", "MCP Servers", "LLM Routing", "PostgreSQL"],
     deliverables: [
       "High-concurrency Go ingestion with real-time WebSocket fan-out",
       "Multi-tenant SaaS APIs with row-level security & RBAC",

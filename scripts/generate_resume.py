@@ -1,6 +1,6 @@
 """Generate Paul Karonji's ATS-friendly resume PDF (public/resume.pdf).
 
-Content mirrors the master resume text (September 2026). Re-run after edits:
+Content mirrors the master resume text (November 2026). Re-run after edits:
     python scripts/generate_resume.py
 """
 import os
@@ -57,28 +57,28 @@ role_style = ParagraphStyle("Role", fontName="TNR", fontSize=11.5, leading=14,
 contact_style = ParagraphStyle("Contact", fontName="TNR", fontSize=9.5, leading=12.5,
                                alignment=TA_CENTER, textColor=TEXT_MUTED, spaceAfter=2)
 section_title_style = ParagraphStyle("SectionTitle", fontName="TNR-Bold", fontSize=12,
-                                     leading=14, spaceBefore=4.5, spaceAfter=2,
+                                     leading=14, spaceBefore=3, spaceAfter=2,
                                      textColor=ACCENT)
 entry_title_style = ParagraphStyle("EntryTitle", fontName="TNR", fontSize=10.1,
-                                   leading=12.4, spaceBefore=1.5, spaceAfter=0,
+                                   leading=12.4, spaceBefore=1.2, spaceAfter=0,
                                    textColor=TEXT_PRIMARY)
 entry_meta_style = ParagraphStyle("EntryMeta", fontName="TNR", fontSize=9.3,
                                   leading=11.6, textColor=TEXT_MUTED, spaceAfter=1.5)
 tech_style = ParagraphStyle("Tech", fontName="TNR-Italic", fontSize=9.3,
-                            leading=11.6, textColor=TEXT_MUTED, spaceAfter=1.5)
-body_style = ParagraphStyle("Body", fontName="TNR", fontSize=9.6, leading=12.05,
+                            leading=11.4, textColor=TEXT_MUTED, spaceAfter=1.5)
+body_style = ParagraphStyle("Body", fontName="TNR", fontSize=9.6, leading=11.8,
                             textColor=TEXT_PRIMARY, spaceAfter=1.5)
-bullet_style = ParagraphStyle("Bullet", fontName="TNR", fontSize=9.6, leading=12.05,
+bullet_style = ParagraphStyle("Bullet", fontName="TNR", fontSize=9.6, leading=11.8,
                               leftIndent=14, bulletIndent=4, spaceBefore=0.1,
                               spaceAfter=0.1, textColor=TEXT_PRIMARY)
-skills_style = ParagraphStyle("Skills", fontName="TNR", fontSize=9.6, leading=12.05,
+skills_style = ParagraphStyle("Skills", fontName="TNR", fontSize=9.6, leading=11.8,
                               spaceAfter=1, textColor=TEXT_PRIMARY)
 
 
 def section(title):
     return [
         Paragraph(md(f"**{title}**"), section_title_style),
-        HRFlowable(width="100%", thickness=0.8, color=ACCENT, spaceBefore=0, spaceAfter=3),
+        HRFlowable(width="100%", thickness=0.8, color=ACCENT, spaceBefore=0, spaceAfter=2.5),
     ]
 
 
@@ -142,7 +142,8 @@ skills = [
     ("Payments & Kenya Rails", "M-Pesa Daraja (STK Push, C2B callbacks), Paystack (card), "
                                "KRA eTIMS (OSCU/VSCU fiscalization), Africa's Talking SMS, "
                                "WhatsApp Cloud API"),
-    ("AI & Integrations", "Multi-model LLM orchestration (AI SDK: Anthropic, OpenAI, Groq, "
+    ("AI & Integrations", "Multi-agent AI operations (self-hosted 9-profile agent fleet), "
+                          "multi-model LLM orchestration (Anthropic, OpenAI, Groq, "
                           "Mistral, OpenRouter), MCP server development, Google Calendar API v3, "
                           "Cloudinary, Resend, VAPID Push"),
     ("Security", "JWT, Row-Level Security, CSRF, CSP, rate limiting, webhook signature "
@@ -159,17 +160,23 @@ for label, values in skills:
 story += section("PROFESSIONAL EXPERIENCE")
 
 _wik_intro = Paragraph(md(
-    "Built and lead a software company whose products serve live users today: a hospital "
-    "management platform running in 3 hospitals and a production POS platform \u2014 working "
-    "with a small engineering team."), body_style)
+    "Build and lead a software company whose products serve live users today: a hospital "
+    "management platform running in 3 hospitals and a production POS family (cloud SaaS + "
+    "offline desktop) \u2014 working with a small engineering team."), body_style)
 story += [KeepTogether(entry("Lead Engineer \u2014 WIK Technologies",
                              "Nairobi, Kenya | Oct 2025 \u2013 Present") + [_wik_intro])]
 story += bullets([
-    "Architected WIK-POS, an offline-first desktop POS suite (Electron + React + TypeScript + "
+    "Built WIK POS Cloud (pos.wiktechnologies.com), a multi-tenant SaaS POS (NestJS 11, React 19, "
+    "Prisma/PostgreSQL, Redis): multi-till M-Pesa Daraja STK Push routing across Buy Goods tills "
+    "and shared Paybills with a 1-click C2B deposit-claiming queue, KRA eTIMS fiscalization worker "
+    "(AES-256 credentials, audit ledger, backoff retries), Paystack recurring SaaS billing with "
+    "10-day no-card trials, a hash-chained controlled-drug register with FEFO batch controls, and "
+    "Redis-cached executive reporting \u2014 600+ automated tests and zero-downtime Docker deploys.",
+    "Architected WIK-POS Desktop, an offline-first POS suite (Electron + React + TypeScript + "
     "SQLite): hardware-bound JWT licensing (CPU + MAC fingerprint), M-Pesa Daraja STK Push with "
-    "IP-guarded callbacks, and KRA eTIMS fiscalization (OSCU worker, AES-256-encrypted tax "
-    "credentials) \u2014 modular editions for retail, hotel F&B (KOT), and pharmacy (PPB batch "
-    "tracking, 60-day FEFO quarantine); production-deployed at pos.wiktechnologies.com.",
+    "IP-guarded callbacks, and KRA eTIMS fiscalization (AES-256-encrypted tax credentials) \u2014 "
+    "modular editions for retail, hotel F&B (KOT), and pharmacy (PPB batch tracking, 60-day FEFO "
+    "quarantine).",
     "Built Pos-License-Server, a centralized licensing authority with a 3-tier model (lifetime / "
     "subscription / trial), hardware fingerprinting, and remote revocation \u2014 Docker + Caddy "
     "deployment across Render/Oracle Cloud with Neon PostgreSQL and automated Cloudflare R2 backups.",
@@ -177,23 +184,12 @@ story += bullets([
     "hospitals via white-labeled per-client instances: 200+ REST endpoints, 56 migrations, "
     "Observer-pattern automated billing, real-time triage queues, and FEFO pharmacy registers; "
     "live demo at hmisdemo.wiktechnologies.com.",
+    "Architected and operate a self-hosted multi-agent AI operations platform (Hermes Agent): "
+    "9 specialist agent profiles routed through an orchestrator across Telegram, WhatsApp, and a "
+    "web dashboard \u2014 3 automated cron pipelines (email signal monitoring, merchant lead "
+    "generation) with 1,600+ executions, multi-provider LLM routing with hot-swappable failover, "
+    "SQLite WAL state stores, and supervised gateway watchdogs.",
 ])
-
-story += exp_entry(
-    "Founding Engineer \u2014 Atlas Data (FleetTrack)",
-    "Remote | Aug 2026 \u2013 Present",
-    items=[
-        "Sole founding engineer of a multi-tenant fleet-telematics and dispatch platform, built "
-        "end-to-end: high-concurrency Go backend (Chi, pgxpool, Gorilla WebSocket), React 19 web "
-        "console, and Expo/React Native driver app; deployed in active testing at "
-        "fleetops-mauve.vercel.app.",
-        "Built the offline-first telemetry pipeline: driver devices buffer GPS/battery samples in "
-        "SQLite and sync in batches on reconnect; a PostgreSQL hot-state cache feeds real-time "
-        "WebSocket fan-out to dispatchers' live maps.",
-        "Shipped automated transit-safety systems: 30-minute stoppage detection auto-raises critical "
-        "incidents and live-map alerts; QR/passcode dispatch claiming; pre/post-trip inspections that "
-        "lock vehicles on critical failures \u2014 with 4-role RBAC and sequential SQL migrations.",
-    ])
 
 story += exp_entry(
     "Technical Lead (Industrial Attachment \u2014 internship) \u2014 JHUB Africa",
@@ -248,16 +244,6 @@ story += exp_entry(
     ])
 
 story += exp_entry(
-    "Hiro \u2014 Self-Hosted Multi-Model AI Agent", "open source",
-    "Node.js/TypeScript, AI SDK, PostgreSQL/SQLite, Pinecone, WhatsApp, Telegram",
-    items=[
-        "Multi-model agent mesh routing across Anthropic/OpenAI/Groq/Mistral/OpenRouter with parallel "
-        "task execution and a dynamic self-improving skills system.",
-        "Document ingestion (PDF/DOCX), web search, memory-backed conversations, voice I/O, and "
-        "rich-output browser canvas across dual Telegram/WhatsApp interfaces.",
-    ])
-
-story += exp_entry(
     "MtaaKeys \u2014 Property Marketplace & Rental Management", "live: mtaakeys.com",
     "Next.js, Express 5, TypeScript, PostgreSQL/Prisma, Socket.IO, Paystack, "
     "Africa's Talking",
@@ -287,6 +273,9 @@ story += entry("BSc Software Development \u2014 KCA University",
 # ── Certifications ──────────────────────────────────────────────────────────
 story += section("CERTIFICATIONS")
 for cert in [
+    "AI Fluency Series (Framework & Foundations; AI Capabilities & Limitations; AI Fluency "
+    "for Students) \u2014 Anthropic (2026)",
+    "Claude 101 \u2014 Anthropic (2026)",
     "Cybersecurity Fundamentals \u2014 IBM SkillsBuild (2025)",
     "Data Protection Basics \u2014 Atingi eLearning (2025)",
     "Zoho Creator Developer Certification \u2014 Zoho (2025)",
@@ -295,7 +284,7 @@ for cert in [
 
 doc = SimpleDocTemplate(
     OUT, pagesize=A4,
-    leftMargin=1.5 * cm, rightMargin=1.5 * cm, topMargin=1.35 * cm, bottomMargin=1.35 * cm,
+    leftMargin=1.5 * cm, rightMargin=1.5 * cm, topMargin=1.0 * cm, bottomMargin=1.0 * cm,
     title="Resume \u2014 Paul Karonji Waithaka \u2014 Full-Stack Software Engineer",
     author="Paul Karonji Waithaka",
     creator="Paul Karonji Waithaka",

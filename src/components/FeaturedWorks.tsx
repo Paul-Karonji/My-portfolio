@@ -26,7 +26,7 @@ export default function FeaturedWorks() {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [modalOpen, setModalOpen] = useState(false);
 
-  // Exactly the 5 curated flagship platforms for the clean main scroll
+  // Curated flagship platforms for the clean main scroll
   const featuredProjects = projects.filter((p) => p.featured);
 
   return (
@@ -75,7 +75,7 @@ export default function FeaturedWorks() {
             className="group cursor-pointer rounded-bento overflow-hidden bg-surface border border-borderHairline/80 shadow-luzia-subtle hover:shadow-luzia-card transition-shadow duration-300 flex flex-col"
           >
             {/* Visual Header / Mockup */}
-            <div className="relative w-full h-[300px] sm:h-[360px] bg-darkCard overflow-hidden">
+            <div className="relative w-full h-[300px] sm:h-[360px] bg-canvas overflow-hidden">
               {project.image ? (
                 <Image
                   src={project.image}
@@ -84,8 +84,8 @@ export default function FeaturedWorks() {
                   className="object-cover object-top group-hover:scale-[1.03] transition-transform duration-500"
                 />
               ) : (
-                <div className="w-full h-full flex flex-col justify-center items-center bg-[#181818] p-8 text-center text-surface/80">
-                  <Layers className="w-10 h-10 text-accentGreen/80 mb-3" />
+                <div className="w-full h-full flex flex-col justify-center items-center bg-canvas p-8 text-center text-mutedText">
+                  <Layers className="w-10 h-10 text-accentViolet/70 mb-3" />
                   <span className="text-[13px] font-medium tracking-wide">
                     Systems Architecture Spec
                   </span>
@@ -94,7 +94,7 @@ export default function FeaturedWorks() {
 
               {/* Top Overlay Badges */}
               <div className="absolute top-4 left-4 right-4 flex items-center justify-between pointer-events-none z-10">
-                <span className="px-3 py-1 rounded-tag bg-darkCard/85 backdrop-blur-md text-white/90 text-[11px] font-medium border border-white/10 shadow-sm">
+                <span className="px-3 py-1 rounded-tag bg-surface/90 backdrop-blur-md text-primaryText text-[11px] font-medium border border-borderHairline shadow-sm">
                   {project.category}
                 </span>
 
@@ -104,7 +104,7 @@ export default function FeaturedWorks() {
                     target="_blank"
                     rel="noopener noreferrer"
                     onClick={(e) => e.stopPropagation()}
-                    className="pointer-events-auto inline-flex items-center gap-1.5 px-3 py-1 rounded-tag bg-blue-600/90 backdrop-blur-md text-white text-[11px] font-semibold hover:bg-blue-600 transition-colors shadow-sm"
+                    className="pointer-events-auto inline-flex items-center gap-1.5 px-3 py-1 rounded-tag bg-accentViolet/90 backdrop-blur-md text-white text-[11px] font-semibold hover:bg-accentViolet transition-colors shadow-sm"
                   >
                     <Download className="w-3 h-3" />
                     <span>Download Suite</span>
@@ -132,7 +132,7 @@ export default function FeaturedWorks() {
                       target="_blank"
                       rel="noopener noreferrer"
                       onClick={(e) => e.stopPropagation()}
-                      className="inline-flex items-center gap-1.5 px-3 py-1 rounded-tag bg-darkCard/90 backdrop-blur-md text-white text-[11px] font-medium border border-white/10 hover:bg-darkCard transition-colors shadow-sm"
+                      className="inline-flex items-center gap-1.5 px-3 py-1 rounded-tag bg-surface/90 backdrop-blur-md text-primaryText text-[11px] font-medium border border-borderHairline hover:bg-surface transition-colors shadow-sm"
                     >
                       <Github className="w-3 h-3" />
                       <span>Source</span>
