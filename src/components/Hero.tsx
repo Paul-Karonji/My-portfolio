@@ -3,7 +3,7 @@
 import { useRef } from "react";
 import Image from "next/image";
 import { motion, useScroll, useTransform, useMotionValue, useSpring } from "framer-motion";
-import { Mail, ArrowDown, Terminal, Cpu } from "lucide-react";
+import { Mail, ArrowDown, Download, Terminal, Cpu } from "lucide-react";
 import { profile } from "@/data/profile";
 
 export default function Hero() {
@@ -135,6 +135,14 @@ export default function Hero() {
               >
                 <Mail className="w-4 h-4 text-white" />
                 <span>Email Me</span>
+              </a>
+              <a
+                href={profile.resumeUrl}
+                download="Paul-Karonji-Waithaka-Resume.pdf"
+                className="inline-flex items-center gap-2 px-6 py-3.5 rounded-btn bg-accentVioletLight text-accentViolet text-[14px] font-medium border border-accentViolet/25 hover:scale-[1.02] active:scale-[0.98] transition-all duration-200"
+              >
+                <Download className="w-4 h-4" />
+                <span>Download Resume</span>
               </a>
               <a
                 href="#work"

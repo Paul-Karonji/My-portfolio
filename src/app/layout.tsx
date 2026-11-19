@@ -39,10 +39,10 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "/images/hero-portrait.webp",
-        width: 768,
-        height: 1365,
-        alt: profile.name,
+        url: "/images/og-card.png",
+        width: 1200,
+        height: 630,
+        alt: `${profile.name} — ${profile.role}`,
       },
     ],
   },
@@ -50,7 +50,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: `${profile.name} — ${profile.role}`,
     description: profile.tagline,
-    images: ["/images/hero-portrait.webp"],
+    images: ["/images/og-card.png"],
   },
 };
 
@@ -62,6 +62,43 @@ export default function RootLayout({
   return (
     <html lang="en" className={instrumentSans.variable}>
       <body className="antialiased min-h-screen selection:bg-accentViolet selection:text-white">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Person",
+              name: profile.name,
+              jobTitle: profile.role,
+              email: `mailto:${profile.email}`,
+              telephone: profile.phone,
+              url: profile.portfolio,
+              image: `${profile.portfolio}/images/hero-portrait.webp`,
+              sameAs: [profile.github, profile.linkedin],
+              address: {
+                "@type": "PostalAddress",
+                addressLocality: "Nairobi",
+                addressCountry: "KE",
+              },
+              alumniOf: {
+                "@type": "CollegeOrUniversity",
+                name: "KCA University",
+              },
+              knowsAbout: [
+                "TypeScript",
+                "Next.js",
+                "Node.js",
+                "NestJS",
+                "Laravel",
+                "Go",
+                "M-Pesa Daraja",
+                "Paystack",
+                "KRA eTIMS",
+                "Model Context Protocol",
+              ],
+            }),
+          }}
+        />
         <SmoothScroll>{children}</SmoothScroll>
       </body>
     </html>

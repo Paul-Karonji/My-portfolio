@@ -153,7 +153,8 @@ export const projects: Project[] = [
       "Background Supabase sync and FCM push notifications",
     ],
     image: "/images/projects/wiktrack.webp",
-    featured: false,
+    featured: true,
+    github: "https://github.com/Paul-Karonji/wiktrack",
   },
   {
     id: "pos-license-server",
@@ -344,7 +345,7 @@ export const projects: Project[] = [
       "Hardened ops: supervised gateway watchdogs, secrets isolation, Nginx pre-flight validation, SQLite WAL state stores",
     ],
     image: "/images/projects/hermes-ops.webp",
-    featured: false,
+    featured: true,
   },
   {
     id: "padi",

@@ -113,12 +113,17 @@ export default function Footer() {
             <ul className="space-y-2.5 text-[14px]">
               {projects.slice(0, 5).map((p) => (
                 <li key={p.id}>
-                  <Link
+                  <a
                     href="#work"
-                    className="text-mutedText hover:text-primaryText transition-colors line-clamp-1"
+                    onClick={() => {
+                      window.dispatchEvent(
+                        new CustomEvent("wik:open-project", { detail: { id: p.id } })
+                      );
+                    }}
+                    className="text-mutedText hover:text-primaryText transition-colors line-clamp-1 cursor-pointer"
                   >
                     {p.title}
-                  </Link>
+                  </a>
                 </li>
               ))}
             </ul>

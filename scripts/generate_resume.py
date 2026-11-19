@@ -173,13 +173,11 @@ story += bullets([
     "10-day no-card trials, a hash-chained controlled-drug register with FEFO batch controls, and "
     "Redis-cached executive reporting \u2014 600+ automated tests and zero-downtime Docker deploys.",
     "Architected WIK-POS Desktop, an offline-first POS suite (Electron + React + TypeScript + "
-    "SQLite): hardware-bound JWT licensing (CPU + MAC fingerprint), M-Pesa Daraja STK Push with "
-    "IP-guarded callbacks, and KRA eTIMS fiscalization (AES-256-encrypted tax credentials) \u2014 "
-    "modular editions for retail, hotel F&B (KOT), and pharmacy (PPB batch tracking, 60-day FEFO "
-    "quarantine).",
-    "Built Pos-License-Server, a centralized licensing authority with a 3-tier model (lifetime / "
-    "subscription / trial), hardware fingerprinting, and remote revocation \u2014 Docker + Caddy "
-    "deployment across Render/Oracle Cloud with Neon PostgreSQL and automated Cloudflare R2 backups.",
+    "SQLite): hardware-bound JWT licensing (CPU + MAC fingerprint) powered by a centralized 3-tier "
+    "licensing authority (lifetime / subscription / trial tiers, remote revocation; Docker + Caddy "
+    "across Render/Oracle Cloud), M-Pesa Daraja STK Push with IP-guarded callbacks, and KRA eTIMS "
+    "fiscalization (AES-256-encrypted tax credentials) \u2014 modular editions for retail, hotel "
+    "F&B (KOT), and pharmacy (PPB batch tracking, 60-day FEFO quarantine).",
     "Led engineering of WIK HMS, a hospital management system (Laravel 12, React 19) live in 3 "
     "hospitals via white-labeled per-client instances: 200+ REST endpoints, 56 migrations, "
     "Observer-pattern automated billing, real-time triage queues, and FEFO pharmacy registers; "

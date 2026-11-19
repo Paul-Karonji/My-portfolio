@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { ArrowUpRight, Layers, ExternalLink, Download, Github } from "lucide-react";
@@ -28,6 +28,20 @@ export default function FeaturedWorks() {
 
   // Curated flagship platforms for the clean main scroll
   const featuredProjects = projects.filter((p) => p.featured);
+
+  // Deep-link support: Footer "Core Systems" links open the modal preselected
+  useEffect(() => {
+    const openProject = (e: Event) => {
+      const id = (e as CustomEvent<{ id: string }>).detail?.id;
+      const project = projects.find((p) => p.id === id);
+      if (project) {
+        setSelectedProject(project);
+        setModalOpen(true);
+      }
+    };
+    window.addEventListener("wik:open-project", openProject);
+    return () => window.removeEventListener("wik:open-project", openProject);
+  }, []);
 
   return (
     <section id="work" className="w-full py-24 px-6 sm:px-10 max-w-[1340px] mx-auto">
@@ -72,6 +86,15 @@ export default function FeaturedWorks() {
             variants={cardVariants}
             whileHover={{ y: -6, transition: { duration: 0.2, ease: "easeOut" } }}
             onClick={() => setSelectedProject(project)}
+            onKeyDown={(e) => {
+              if (e.key === "Enter" || e.key === " ") {
+                e.preventDefault();
+                setSelectedProject(project);
+              }
+            }}
+            role="button"
+            tabIndex={0}
+            aria-label={`View details: ${project.title}`}
             className="group cursor-pointer rounded-bento overflow-hidden bg-surface border border-borderHairline/80 shadow-luzia-subtle hover:shadow-luzia-card transition-shadow duration-300 flex flex-col"
           >
             {/* Visual Header / Mockup */}
